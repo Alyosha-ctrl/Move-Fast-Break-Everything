@@ -118,7 +118,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0.22344995, g: 0, b: 1, a: 1}
@@ -153,7 +153,7 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
@@ -210,6 +210,7 @@ MonoBehaviour:
   dashDuration: 0.2
   dashCooldown: 1
   moveSpeed: 5
+  baseMoveSpeed: 5
   dashKey: 32
   slideKey: 304
   chargeKey: 122
@@ -234,7 +235,7 @@ MonoBehaviour:
   bulletSpeed: 10
   detectionRange: 10
   targetRefreshRate: 0.3
-  baseDamege: 1
+  baseDamege: 4
   dis: 10
 --- !u!114 &8550780378805119090
 MonoBehaviour:
@@ -263,9 +264,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48fe1787d8d132f41a39a96d2b48c165, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Stats
-  speedMultiplier: 5
-  damageMultiplier: 2
-  maxHealthStat: 10
+  speedMultiplier: 1
+  damageMultiplier: 1
+  maxHealthStat: 1
+  dexterityMultiplier: 1
 --- !u!114 &-6438699549702643509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -279,3 +281,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
   maxHealth: 10
+  invulnerabilityDuration: 1
+  flashInterval: 0.1
+  flashAlpha: 0.35
