@@ -28,6 +28,14 @@ public class Enemy : MonoBehaviour
             currentHealth = 10;
         }
     }
+    public void Heal(int healAmount)
+    {
+        currentHealth += healAmount;
+        if (stats != null)
+        {
+            currentHealth = Mathf.Min(currentHealth, stats.GetMaxHealth());
+        }
+    }
     private void Awake()
     {
         stats = GetComponent<EnemyStats>();

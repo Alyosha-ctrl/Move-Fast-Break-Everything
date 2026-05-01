@@ -26,7 +26,7 @@ public class Melee : MonoBehaviour
 
         hitbox = GetComponent<Collider2D>();
 
-        Debug.Log("Melee running");
+       
     }
 
     void Update()
