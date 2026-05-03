@@ -700,6 +700,18 @@ MonoBehaviour:
     spawnOnTech: 1
     spawnOnHazard: 0
     spawnOnDeath: 0
+  - prefabs:
+    - {fileID: 1961546337541591266, guid: b2b6b5a49c4aec04c9c2e17be85dfdf5, type: 3}
+    objectCount: 2
+    spawnChance: 1
+    playerSpawnPoint: {x: 0, y: 0}
+    objectSpacing: 4
+    playerSpacing: 5
+    maxPlacementAttempts: 25
+    spawnOnEarth: 0
+    spawnOnTech: 0
+    spawnOnHazard: 0
+    spawnOnDeath: 1
 --- !u!1 &787839363
 GameObject:
   m_ObjectHideFlags: 0
