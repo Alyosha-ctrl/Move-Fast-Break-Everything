@@ -10,9 +10,11 @@ public class Enemy : MonoBehaviour
     [SerializeField] private int maxXpOrbDrops = 2;
     [SerializeField] private float xpDropRadius = 0.6f;
     [SerializeField] private float minXpOrbSpacing = 0.35f;
+    [SerializeField] private bool canBeShot = true;
 
     private Transform playerLocation;
     private float currentHealth;
+    public bool CanBeShot => canBeShot;
 
     // public int damageMultiplier;
     //damage mult will be increased when enemy levls up using similar level up system to player, but for now just a base damage
