@@ -172,6 +172,8 @@ public class TestMovement : MonoBehaviour
     {
         failureParticle.startColor = Color.blue;
         failureParticle.Play();
+
+        failureParticle.transform.Rotate(facing);
         Debug.Log("DashAmount");
         Debug.Log(dashSpeed * (slideDashMovementSO.agilityScale*stats.speedMultiplier * Time.fixedDeltaTime));
         return facing * (dashSpeed + (slideDashMovementSO.agilityScale*stats.speedMultiplier)) * Time.fixedDeltaTime;
