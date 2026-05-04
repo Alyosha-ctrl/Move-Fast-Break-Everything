@@ -29,6 +29,11 @@ public class TestMovement : MonoBehaviour
     public MovementStateMachine movementStateMachine;
 
     public ParticleSystem failureParticle;
+    public ParticleSystem dashParticle;
+    public ParticleSystem slideDashParticle;
+    public ParticleSystem slideParticle;
+    public ParticleSystem chargeParticle;
+    public ParticleSystem chargeDecayParticle;
 
     [Header("Audio")]
     [SerializeField] private SoundDefinition slideSound;
@@ -170,10 +175,11 @@ public class TestMovement : MonoBehaviour
 
     private Vector2 Dash()
     {
-        failureParticle.startColor = Color.blue;
-        failureParticle.Play();
-
-        failureParticle.transform.Rotate(facing);
+        // failureParticle.startColor = Color.blue;
+        failureParticle.Stop();
+        dashParticle.transform.right = facing;
+        dashParticle.Play();
+        
         Debug.Log("DashAmount");
         Debug.Log(dashSpeed * (slideDashMovementSO.agilityScale*stats.speedMultiplier * Time.fixedDeltaTime));
         return facing * (dashSpeed + (slideDashMovementSO.agilityScale*stats.speedMultiplier)) * Time.fixedDeltaTime;
@@ -183,8 +189,8 @@ public class TestMovement : MonoBehaviour
     {
         //Shrink the Player
         // Debug.Log("In Slide");
-        failureParticle.startColor = Color.red;
-        failureParticle.Play();
+        failureParticle.Stop();
+        slideParticle.Play();
         transform.localScale = new Vector3(.25f, .25f, .25f);
         // rb.MovePosition(rb.position + facing*slideMovementSO.movePower*Time.fixedDeltaTime);
         return facing.normalized * (slideMovementSO.movePower + (slideMovementSO.agilityScale*stats.speedMultiplier) + (slideMovementSO.dexterityScale*stats.dexterityMultiplier)) * Time.fixedDeltaTime;
@@ -205,8 +211,8 @@ public class TestMovement : MonoBehaviour
         transform.localScale = new UnityEngine.Vector3(.75f, .75f, .75f);
 
         //Just for testing play the failure particle
-        failureParticle.startColor = Color.darkGreen;
-        failureParticle.Play();
+        failureParticle.Stop();
+        chargeParticle.Play();
         
         rb.MovePosition(rb.position + facing * chargeMovementSO.movePower / 2 * Time.fixedDeltaTime);
         //Moves you backwards a bit which can be used to do chargeswitch tech! EEEE!
@@ -216,6 +222,12 @@ public class TestMovement : MonoBehaviour
     private Vector2 ChargeDecay()
     {
         //Shrink the player
+        failureParticle.Stop();
+        chargeParticle.Stop();
+        chargeDecayParticle.Play();
+
+        //Make the player a bit green for a bit.
+
         transform.localScale = new UnityEngine.Vector3(.5f,.5f,.5f);
         // Debug.Log("In Slide Decay");
         // rb.MovePosition(rb.position + facing*(slideMovementSO.movePower)*Time.fixedDeltaTime);
@@ -224,15 +236,20 @@ public class TestMovement : MonoBehaviour
 
     private Vector2 SlideDash()
     {
-        failureParticle.startColor = Color.purple;
-        failureParticle.Play();
+        // failureParticle.startColor = Color.purple;
+        // failureParticle.Play();
+        failureParticle.Stop();
+
+        slideDashParticle.transform.right = facing;
+        slideDashParticle.Play();
+
         Debug.Log("In Slide Dash");
         return facing.normalized * (slideDashMovementSO.movePower + (slideDashMovementSO.agilityScale*stats.speedMultiplier))* Time.fixedDeltaTime;
     }
 
     private void MoveFail()
     {
-        failureParticle.startColor = Color.black;
+        //Add a bad sound in here
         failureParticle.Play();
     }
     //__________________________________________________________________________________________________
