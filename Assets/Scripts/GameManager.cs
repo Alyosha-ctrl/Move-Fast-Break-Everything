@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -191,9 +192,16 @@ public class GameManager : MonoBehaviour
         var randomButton2 = root.Q<Button>(RandomButtonName2);
         var randomButton3 = root.Q<Button>(RandomButtonName3);
 
-        randomButton.clicked += () => ResolveLevelUpChoice(_choice1);
-        randomButton2.clicked += () => ResolveLevelUpChoice(_choice2);
-        randomButton3.clicked += () => ResolveLevelUpChoice(_choice3);
+
+        if (_randomButton != null)
+            _randomButton.clicked += () => ResolveLevelUpChoice(_choice1);
+
+        if (_randomButton2 != null)
+            _randomButton2.clicked += () => ResolveLevelUpChoice(_choice2);
+
+        if (_randomButton3 != null)
+            _randomButton3.clicked += () => ResolveLevelUpChoice(_choice3);
+
 
         if (resumeButton != null) resumeButton.clicked += ResumeGame;
         if (pauseOptionsButton != null) pauseOptionsButton.clicked += OpenPauseOptions;
@@ -318,30 +326,19 @@ public class GameManager : MonoBehaviour
     {
         if (randomOptions.Count == 0) return;
 
-        //temp
         List<string> pool = new List<string>(randomOptions);
 
         _choice1 = GetRandomFromPool(pool);
         _choice2 = GetRandomFromPool(pool);
         _choice3 = GetRandomFromPool(pool);
 
-        if (_randomButton != null)
-        {
-            _randomButton.text = _choice1;
-            _randomButton.style.display = DisplayStyle.Flex;
-        }
+        SetButtonTextWithPreview(_randomButton, _choice1);
+        SetButtonTextWithPreview(_randomButton2, _choice2);
+        SetButtonTextWithPreview(_randomButton3, _choice3);
 
-        if (_randomButton2 != null)
-        {
-            _randomButton2.text = _choice2;
-            _randomButton2.style.display = DisplayStyle.Flex;
-        }
-
-        if (_randomButton3 != null)
-        {
-            _randomButton3.text = _choice3;
-            _randomButton3.style.display = DisplayStyle.Flex;
-        }
+        if (_randomButton != null) _randomButton.style.display = DisplayStyle.Flex;
+        if (_randomButton2 != null) _randomButton2.style.display = DisplayStyle.Flex;
+        if (_randomButton3 != null) _randomButton3.style.display = DisplayStyle.Flex;
     }
 
     private string GetRandomFromPool(List<string> pool)
@@ -353,8 +350,50 @@ public class GameManager : MonoBehaviour
         pool.RemoveAt(index);
         return choice;
     }
+    private void SetButtonTextWithPreview(Button button, string choiceId)
+    {
+        if (button == null || string.IsNullOrEmpty(choiceId)) return;
 
+        
+        if (_playerStats != null)
+        {
+            var preview = _playerStats.GetPreview(choiceId);
+            string current = preview.current;
+            string future = preview.future;
 
+            button.text = $"{choiceId}\n{current} -> {future}";
+            string defense = "";
+      
+            if(choiceId=="defense")
+            {
+                defense = "Orbiting bullet scaling";
+            }
+            if (current != "--")
+            {
+                button.text = $"{FormatChoiceName(choiceId)}\n{current} -> {future}\n{defense}";
+                return;
+                
+            }
+        }
+
+        
+        button.text = $"{FormatChoiceName(choiceId)}\n{GetAbilityDescription(choiceId)}";
+    }
+    private string GetAbilityDescription(string choiceId)
+    {
+        switch (choiceId)
+        {
+            case "melee": return "melee attack";
+            case "orbit": return "orbiting Bullets\n that circle \n the player";
+           
+            default: return "";
+        }
+    }
+    private string FormatChoiceName(string id)
+    {
+        if (string.IsNullOrEmpty(id)) return "";
+        return char.ToUpper(id[0]) + id.Substring(1);
+    }
     private void ResolveLevelUpChoice(string choiceId)
     {
         EnablePlayerAbility(choiceId);

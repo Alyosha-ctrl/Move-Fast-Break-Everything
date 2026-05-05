@@ -119,7 +119,55 @@ public class Stats : MonoBehaviour
     {
         defense += percent;
     }
+    public (string current, string future) GetPreview(string choiceId)
+    {
+        switch (choiceId)
+        {
+            case "health":
+                {
+                    int current = GetMaxHealth();
+                    float futureMultiplier = healthMultiplier + healthIncrease;
+                    int future = Mathf.RoundToInt((baseHealth + flatHealthBonus) * futureMultiplier);
 
+                    return (current.ToString(), future.ToString());
+                }
+
+            case "strength":
+                {
+                    float currentPierce = pirece;
+                    float futurePierce = pirece + pirece; 
+
+                    return ($"{currentPierce:0.00}", $"{futurePierce:0.00}");
+                }
+
+            case "dexterity":
+                {
+                    float current = dexterityMultiplier;
+                    float future = dexterityMultiplier + DexterityFireRateIncrease;
+
+                    return ($"x{current:0.00}", $"x{future:0.00}");
+                }
+
+            case "agility":
+                {
+                    float currentSpeed = speedMultiplier;
+                    float futureSpeed = speedMultiplier + moveSpeedIncrease;
+
+                    return ($"x{currentSpeed:0.00}", $"x{futureSpeed:0.00}");
+                }
+
+            case "defense":
+                {
+                    float current = defense;
+                    float future = defense + 0.5f;
+
+                    return ($"{current * 100f:0}%", $"{future * 100f:0}%");
+                }
+
+            default:
+                return ("--", "--");
+        }
+    }
     private void ApplyPurchasedPowerUps()
     {
         var mightRank = ShopPowerUpProgress.GetRank("might");

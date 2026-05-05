@@ -10,7 +10,7 @@
             <ui:Image name="run-coin-icon" class="run-coin-icon"/>
             <ui:Label name="run-coin-label" text="0" class="run-coin-label"/>
         </ui:VisualElement>
-        <ui:VisualElement name="level-up-root" class="level-up-root" style="display: none;">
+        <ui:VisualElement name="level-up-root" class="level-up-root" style="display: none; bottom: -44px; right: -63px; top: -39px; left: -35px;">
             <ui:Label text="LEVEL UP" class="level-up-title"/>
             <ui:VisualElement name="VisualElement" class="level-up-card-row">
                 <ui:Button name="random-button" text="" enabled="true" class="level-up-card level-up-card--intelligence" style="display: flex;"/>
