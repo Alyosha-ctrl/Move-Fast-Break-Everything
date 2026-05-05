@@ -93,7 +93,7 @@
         <ui:VisualElement name="game-over-root" class="game-over-root" style="display: none;">
             <ui:Label text="YOU DIED" class="game-over-title"/>
             <ui:Button name="retry-button" text="Retry" class="game-over-button game-over-button--primary"/>
-            <ui:Button name="quit-button" text="Quit" class="game-over-button"/>
+            <ui:Button name="quit-button" text="Quit" class="game-over-button game-over-button--danger"/>
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>
