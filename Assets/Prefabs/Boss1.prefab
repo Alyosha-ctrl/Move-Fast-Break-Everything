@@ -220,7 +220,7 @@ GameObject:
   - component: {fileID: 5260938390754987574}
   - component: {fileID: 5254759662387234936}
   m_Layer: 7
-  m_Name: Boss0
+  m_Name: Boss1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -503,18 +503,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9535a9d10c47ba240b3d2dd7c934acba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  maxHealth: 100
+  maxHealth: 500
   contactDamage: 3
   hurtSound: {fileID: 11400000, guid: 6c72d3846ee21984c946066a593363e9, type: 2}
   slowStartDuration: 3
   healthBar: {fileID: 1829930342014113047}
   phaseOneAttacks:
   - {fileID: 5494783331620452175}
-  - {fileID: 3326951546662361177}
-  - {fileID: 4907665210716050242}
-  - {fileID: 3079197020917676478}
   - {fileID: 5260938390754987574}
-  - {fileID: 5254759662387234936}
 --- !u!114 &5494783331620452175
 MonoBehaviour:
   m_ObjectHideFlags: 0
