@@ -8,10 +8,12 @@ public class Stats : MonoBehaviour
     private const float MightDamageIncreasePerRank = 0.05f;
     private const float MaxHealthIncreasePerRank = 0.1f;
     private const float HasteFireRateIncreasePerRank = 0.05f;
-    private const float MoveSpeedIncreasePerRank = 0.04f;
+    private const float MoveSpeedIncreasePerRank = 0.004f;
     private const float DefenseIncreasePerRank = 0.05f;
     private const float PierceIncreasePerRank = 0.05f;
     private const float ThornsIncreasePerRank = 0.05f;
+
+    public const float moveSpeedIncrease = .2f;
 
     public float speedMultiplier = 0.2f;
     public float rangedDamageMultiplier = 1f;
@@ -117,7 +119,55 @@ public class Stats : MonoBehaviour
     {
         defense += percent;
     }
+    public (string current, string future) GetPreview(string choiceId)
+    {
+        switch (choiceId)
+        {
+            case "health":
+                {
+                    int current = GetMaxHealth();
+                    float futureMultiplier = healthMultiplier + healthIncrease;
+                    int future = Mathf.RoundToInt((baseHealth + flatHealthBonus) * futureMultiplier);
 
+                    return (current.ToString(), future.ToString());
+                }
+
+            case "strength":
+                {
+                    float currentPierce = pirece;
+                    float futurePierce = pirece + pirece; 
+
+                    return ($"{currentPierce:0.00}", $"{futurePierce:0.00}");
+                }
+
+            case "dexterity":
+                {
+                    float current = dexterityMultiplier;
+                    float future = dexterityMultiplier + DexterityFireRateIncrease;
+
+                    return ($"x{current:0.00}", $"x{future:0.00}");
+                }
+
+            case "agility":
+                {
+                    float currentSpeed = speedMultiplier;
+                    float futureSpeed = speedMultiplier + moveSpeedIncrease;
+
+                    return ($"x{currentSpeed:0.00}", $"x{futureSpeed:0.00}");
+                }
+
+            case "defense":
+                {
+                    float current = defense;
+                    float future = defense + 0.5f;
+
+                    return ($"{current * 100f:0}%", $"{future * 100f:0}%");
+                }
+
+            default:
+                return ("--", "--");
+        }
+    }
     private void ApplyPurchasedPowerUps()
     {
         var mightRank = ShopPowerUpProgress.GetRank("might");
@@ -186,22 +236,23 @@ public class Stats : MonoBehaviour
                 break;
             case "dexterity":
                 IncreaseDexterity(DexterityFireRateIncrease);
+                circle.increaseRotationSpeed(10f);
+                melee.hitSpeedIncrease(0.05f);
                 Debug.Log($"Dexterity selected. Fire Rate Multiplier: {dexterityMultiplier}", this);
                 break;
             case "agility":
                 IncreaseRangedDamage(rangeDamageIncrease);
-                IncreaseSpeed(speedMultiplier);
+                IncreaseSpeed(moveSpeedIncrease);
                 Debug.Log($"Agility selected. Ranged Damage Multiplier: {rangedDamageMultiplier}", this);
                 Debug.Log($"Agility selected. Speed Multiplier: {speedMultiplier}", this);
-                break;
-            case "intelligence":
+                Debug.Log($"Agility selected. Ranged Damage Multiplier: {rangedDamageMultiplier}", this);
                 IncreaseRangedDamage(rangeDamageIncrease);
                 //need to add check to stop count at certain limit
-                circle.AddWeapon();
-                Debug.Log($"Intelligence selected. Ranged Damage Multiplier: {rangedDamageMultiplier}", this);
+                
                 break;
             case "defense":
                 IncreaseDefense(0.5f);
+                circle.AddWeapon();
                 Debug.Log($"Defense selected. New defense at: {defense}", this);
                 break;
             default:
