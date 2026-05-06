@@ -649,9 +649,9 @@ MonoBehaviour:
   boss2Prefab: {fileID: 1874990315484048395, guid: 3cae73fc11ab4794f9bfd6103a24379d, type: 3}
   boss3Prefab: {fileID: 1874990315484048395, guid: 058344c965d47b24ca174b860d2c36d0, type: 3}
   virtualCamera: {fileID: 1269148360}
-  boss1SpawnTime: 5
-  boss2SpawnTime: 30
-  boss3SpawnTime: 60
+  boss1SpawnTime: 300
+  boss2SpawnTime: 600
+  boss3SpawnTime: 900
 --- !u!114 &636936955
 MonoBehaviour:
   m_ObjectHideFlags: 0
