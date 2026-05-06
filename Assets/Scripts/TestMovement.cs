@@ -95,7 +95,7 @@ public class TestMovement : MonoBehaviour
             SoundManager.Play(dashSound);
             return;
         }
-        else 
+        else
         {
             MoveFail();
         }
@@ -105,7 +105,7 @@ public class TestMovement : MonoBehaviour
             MoveFail();
             return;
         }
-        
+
 
         isDashing = true;
         dashDurationTimer = dashDuration;
@@ -137,7 +137,7 @@ public class TestMovement : MonoBehaviour
     //__________________________________________________________________________________________________
     void FixedUpdate()
     {
-        UnityEngine.Vector2 endPos = new UnityEngine.Vector2(0,0);
+        UnityEngine.Vector2 endPos = new UnityEngine.Vector2(0, 0);
         float currentMoveSpeed = (stats != null) ? stats.GetSpeed(baseMoveSpeed) : moveSpeed;
         endPos += rb.position;
         // rb.MovePosition(rb.position + (moveInput * moveSpeed) * Time.fixedDeltaTime);
@@ -150,7 +150,7 @@ public class TestMovement : MonoBehaviour
         if (IsSlideDashing)
         {
             endPos += SlideDash();
-        }  
+        }
 
         if (IsSliding)
         {
@@ -181,8 +181,8 @@ public class TestMovement : MonoBehaviour
         dashParticle.Play();
         
         Debug.Log("DashAmount");
-        Debug.Log(dashSpeed * (slideDashMovementSO.agilityScale*stats.speedMultiplier * Time.fixedDeltaTime));
-        return facing * (dashSpeed + (slideDashMovementSO.agilityScale*stats.speedMultiplier)) * Time.fixedDeltaTime;
+        Debug.Log(dashSpeed * (slideDashMovementSO.agilityScale * Time.fixedDeltaTime));
+        return facing * (dashSpeed + slideDashMovementSO.agilityScale) * Time.fixedDeltaTime;
     }
 
     private Vector2 Slide()
@@ -193,16 +193,16 @@ public class TestMovement : MonoBehaviour
         slideParticle.Play();
         transform.localScale = new Vector3(.25f, .25f, .25f);
         // rb.MovePosition(rb.position + facing*slideMovementSO.movePower*Time.fixedDeltaTime);
-        return facing.normalized * (slideMovementSO.movePower + (slideMovementSO.agilityScale*stats.speedMultiplier) + (slideMovementSO.dexterityScale*stats.dexterityMultiplier)) * Time.fixedDeltaTime;
+        return facing.normalized * (slideMovementSO.movePower * (slideMovementSO.agilityScale) * Time.fixedDeltaTime);
     }
 
     private Vector2 SlideDecay()
     {
         //Unshrink the player
         // Debug.Log("In Slide Decay");
-        transform.localScale = new Vector3(.5f,.5f,.5f);
-        rb.MovePosition(rb.position + facing * (slideMovementSO.movePower/2 * Time.fixedDeltaTime));
-        return facing * (-slideMovementSO.movePower/4 * Time.fixedDeltaTime);
+        transform.localScale = new Vector3(.5f, .5f, .5f);
+        rb.MovePosition(rb.position + facing * (slideMovementSO.movePower / 2 * Time.fixedDeltaTime));
+        return facing * (-slideMovementSO.movePower / 4 * Time.fixedDeltaTime);
     }
 
     private Vector2 Charge()
@@ -216,7 +216,7 @@ public class TestMovement : MonoBehaviour
         
         rb.MovePosition(rb.position + facing * chargeMovementSO.movePower / 2 * Time.fixedDeltaTime);
         //Moves you backwards a bit which can be used to do chargeswitch tech! EEEE!
-        return facing * (-chargeMovementSO.movePower/1.5f * Time.fixedDeltaTime);
+        return facing * (-slideMovementSO.movePower / 1.5f * Time.fixedDeltaTime);
     }
 
     private Vector2 ChargeDecay()
@@ -231,7 +231,7 @@ public class TestMovement : MonoBehaviour
         transform.localScale = new UnityEngine.Vector3(.5f,.5f,.5f);
         // Debug.Log("In Slide Decay");
         // rb.MovePosition(rb.position + facing*(slideMovementSO.movePower)*Time.fixedDeltaTime);
-        return facing.normalized * (slideMovementSO.movePower + (chargeMovementSO.strengthScale*stats.damageMultiplier)) * Time.fixedDeltaTime;
+        return facing.normalized * (slideMovementSO.movePower * (chargeMovementSO.strengthScale) * Time.fixedDeltaTime);
     }
 
     private Vector2 SlideDash()
@@ -244,7 +244,7 @@ public class TestMovement : MonoBehaviour
         slideDashParticle.Play();
 
         Debug.Log("In Slide Dash");
-        return facing.normalized * (slideDashMovementSO.movePower + (slideDashMovementSO.agilityScale*stats.speedMultiplier))* Time.fixedDeltaTime;
+        return facing.normalized * (slideDashMovementSO.movePower * (slideDashMovementSO.agilityScale) * Time.fixedDeltaTime);
     }
 
     private void MoveFail()
