@@ -1,7 +1,10 @@
 using System;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.Tilemaps;
 using UnityEngine.UIElements;
 
 public class GameManager : MonoBehaviour
@@ -51,6 +54,25 @@ public class GameManager : MonoBehaviour
     private const string RetryButtonName = "retry-button";
     private const string GameOverQuitButtonName = "quit-button";
 
+    //for weapon
+    [SerializeField] private GameObject player;
+    private const string RandomButtonName = "random-button";
+    private const string RandomButtonName2 = "random-button-2";
+    private const string RandomButtonName3 = "random-button-3";
+    private List<string> randomOptions = new List<string>()
+    {
+        //weapons
+        "melee",
+        "orbit",
+        //actual levels
+        "health",
+        "strength",
+        "dexterity",
+        "agility",
+        "defense"
+    };
+    private string _currentRandomChoice;
+
     private Label _runTimerLabel;
     private Label _runCoinLabel;
     private Image _runCoinIcon;
@@ -82,6 +104,10 @@ public class GameManager : MonoBehaviour
     private bool _isPaused;
     private int currentEnemyLevel = 1;
     private int previousEnemyLevel = 1;
+
+    private Button _randomButton;
+    private Button _randomButton2;
+    private Button _randomButton3;
 
     public static GameManager Instance { get; private set; }
     public static float CurrentRunTimeSeconds => Instance != null ? Instance._currentRunTime : 0f;
@@ -147,6 +173,11 @@ public class GameManager : MonoBehaviour
         _pauseStatThornsIcon = root.Q<Image>(PauseStatThornsIconName);
         _gameOverRoot = root.Q<VisualElement>(GameOverRootName);
 
+        //random choices
+        _randomButton = root.Q<Button>(RandomButtonName);
+        _randomButton2 = root.Q<Button>(RandomButtonName2);
+        _randomButton3 = root.Q<Button>(RandomButtonName3);
+
         var strengthButton = root.Q<Button>(StrengthButtonName);
         var dexterityButton = root.Q<Button>(DexterityButtonName);
         var intelligenceButton = root.Q<Button>(IntelligenceButtonName);
@@ -157,9 +188,21 @@ public class GameManager : MonoBehaviour
         var gameOverQuitButton = root.Q<Button>(GameOverQuitButtonName);
         var optionsCloseButton = root.Q<Button>(OptionsMenuView.CloseButtonName);
 
-        if (strengthButton != null) strengthButton.clicked += () => ResolveLevelUpChoice("strength");
-        if (dexterityButton != null) dexterityButton.clicked += () => ResolveLevelUpChoice("dexterity");
-        if (intelligenceButton != null) intelligenceButton.clicked += () => ResolveLevelUpChoice("intelligence");
+        var randomButton = root.Q<Button>(RandomButtonName);
+        var randomButton2 = root.Q<Button>(RandomButtonName2);
+        var randomButton3 = root.Q<Button>(RandomButtonName3);
+
+
+        if (_randomButton != null)
+            _randomButton.clicked += () => ResolveLevelUpChoice(_choice1);
+
+        if (_randomButton2 != null)
+            _randomButton2.clicked += () => ResolveLevelUpChoice(_choice2);
+
+        if (_randomButton3 != null)
+            _randomButton3.clicked += () => ResolveLevelUpChoice(_choice3);
+
+
         if (resumeButton != null) resumeButton.clicked += ResumeGame;
         if (pauseOptionsButton != null) pauseOptionsButton.clicked += OpenPauseOptions;
         if (pauseQuitButton != null) pauseQuitButton.clicked += QuitToMenu;
@@ -269,10 +312,94 @@ public class GameManager : MonoBehaviour
         {
             _levelUpRoot.style.display = DisplayStyle.Flex;
         }
+        FourthOption();
     }
 
+
+
+    private string _choice1;
+    private string _choice2;
+    private string _choice3;
+
+
+    private void FourthOption()
+    {
+        if (randomOptions.Count == 0) return;
+
+        List<string> pool = new List<string>(randomOptions);
+
+        _choice1 = GetRandomFromPool(pool);
+        _choice2 = GetRandomFromPool(pool);
+        _choice3 = GetRandomFromPool(pool);
+
+        SetButtonTextWithPreview(_randomButton, _choice1);
+        SetButtonTextWithPreview(_randomButton2, _choice2);
+        SetButtonTextWithPreview(_randomButton3, _choice3);
+
+        if (_randomButton != null) _randomButton.style.display = DisplayStyle.Flex;
+        if (_randomButton2 != null) _randomButton2.style.display = DisplayStyle.Flex;
+        if (_randomButton3 != null) _randomButton3.style.display = DisplayStyle.Flex;
+    }
+
+    private string GetRandomFromPool(List<string> pool)
+    {
+        if (pool.Count == 0) return null;
+
+        int index = UnityEngine.Random.Range(0, pool.Count);
+        string choice = pool[index];
+        pool.RemoveAt(index);
+        return choice;
+    }
+    private void SetButtonTextWithPreview(Button button, string choiceId)
+    {
+        if (button == null || string.IsNullOrEmpty(choiceId)) return;
+
+        
+        if (_playerStats != null)
+        {
+            var preview = _playerStats.GetPreview(choiceId);
+            string current = preview.current;
+            string future = preview.future;
+
+            button.text = $"{choiceId}\n{current} -> {future}";
+            string defense = "";
+      
+            if(choiceId=="defense")
+            {
+                defense = "Orbiting bullet scaling";
+            }
+            if (current != "--")
+            {
+                button.text = $"{FormatChoiceName(choiceId)}\n{current} -> {future}\n{defense}";
+                return;
+                
+            }
+        }
+
+        
+        button.text = $"{FormatChoiceName(choiceId)}\n{GetAbilityDescription(choiceId)}";
+    }
+    private string GetAbilityDescription(string choiceId)
+    {
+        switch (choiceId)
+        {
+            case "melee": return "melee attack";
+            case "orbit": return "orbiting Bullets\n that circle \n the player";
+           
+            default: return "";
+        }
+    }
+    private string FormatChoiceName(string id)
+    {
+        if (string.IsNullOrEmpty(id)) return "";
+        return char.ToUpper(id[0]) + id.Substring(1);
+    }
     private void ResolveLevelUpChoice(string choiceId)
     {
+        EnablePlayerAbility(choiceId);
+
+     
+
         if (_playerLevelUp == null)
         {
             return;
@@ -287,8 +414,57 @@ public class GameManager : MonoBehaviour
         {
             _levelUpRoot.style.display = DisplayStyle.None;
         }
+        if (_randomButton != null)
+        {
+            _randomButton.style.display = DisplayStyle.None;
+        }
+        if (_randomButton2 != null)
+        {
+            _randomButton2.style.display = DisplayStyle.None;
+        }
+        if (_randomButton3 != null)
+        {
+            _randomButton3.style.display = DisplayStyle.None;
+        }
+        
         Time.timeScale = 1f;
         _playerLevelUp.ResolveLevelUpChoice();
+    }
+    private void EnablePlayerAbility(string choiceId)
+    {
+
+        switch (choiceId)
+        {
+            case "autofire":
+                {
+                    Debug.Log("hello");
+                    var comp = player.GetComponent<AutoAim>();
+                    if (comp != null) comp.enabled = true;
+                    randomOptions.Remove(choiceId);
+                    break;
+                }
+
+            case "melee":
+                {
+                    var comp = player.GetComponentInChildren<Melee>(true);
+                    randomOptions.Remove(choiceId);
+                    comp.gameObject.SetActive(true); 
+                    comp.enabled = true;
+                    Debug.Log("Melee enabled and activated");
+                   
+                    break;
+                }
+
+            case "orbit":
+                {
+                    var comp = player.GetComponent<Circle>();
+                    randomOptions.Remove(choiceId);
+                    comp.gameObject.SetActive(true);
+                    comp.enabled = true;
+                    Debug.Log("Orbit enabled and activated");
+                    break;
+                }
+        }
     }
 
     private void RefreshLevelProgressBar()

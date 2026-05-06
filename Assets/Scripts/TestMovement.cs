@@ -201,7 +201,7 @@ public class TestMovement : MonoBehaviour
         transform.localScale = new UnityEngine.Vector3(.75f, .75f, .75f);
 
         //Just for testing play the failure particle
-        failureParticle.startColor = Color.green;
+        failureParticle.startColor = Color.darkGreen;
         failureParticle.Play();
 
         rb.MovePosition(rb.position + facing * slideMovementSO.movePower / 2 * Time.fixedDeltaTime);
@@ -232,4 +232,22 @@ public class TestMovement : MonoBehaviour
         failureParticle.Play();
     }
     //__________________________________________________________________________________________________
+
+    void OnCollisionStay2D(Collision2D collision)
+    {
+        if (movementStateMachine.HasState(MovementStateMachine.State.chargeDecay))
+        {
+            int damage = (stats != null) ? stats.GetDamage(1) : 1;
+            float pierce = stats != null ? stats.GetPierce() : 0f;
+            if (collision.gameObject != null && collision.gameObject.CompareTag("Enemy"))
+            {
+                Enemy player = collision.gameObject.GetComponent<Enemy>();
+                if (player != null)
+                {
+                    player.TakeDamage(damage, pierce);
+                    Debug.Log("Charging Into Enemy");
+                }
+            }
+        }
+    }
 }
