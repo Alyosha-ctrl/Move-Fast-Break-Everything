@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 6097e061382c8554ea3b7ea520b610c7
+guid: 83766b1cd5b8d3d44bc8843e7a8615be
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 489788247124575314
-    second: Tek2_0
+      213: 4483504832982471387
+    second: pixil-frame-0 (1)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Tek2_0
+      name: pixil-frame-0 (1)_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2548505d0d31cc600800000000000000
-      internalID: 489788247124575314
+      spriteID: bd2daa614eb983e30800000000000000
+      internalID: 4483504832982471387
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Tek2_0: 489788247124575314
+      pixil-frame-0 (1)_0: 4483504832982471387
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
