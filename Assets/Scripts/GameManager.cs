@@ -354,37 +354,71 @@ public class GameManager : MonoBehaviour
     {
         if (button == null || string.IsNullOrEmpty(choiceId)) return;
 
-        
+
         if (_playerStats != null)
         {
             var preview = _playerStats.GetPreview(choiceId);
             string current = preview.current;
             string future = preview.future;
+            Color color;
 
             button.text = $"{choiceId}\n{current} -> {future}";
             string defense = "";
-      
-            if(choiceId=="defense")
+
+            if (choiceId == "defense")
             {
-                defense = "Orbiting bullet scaling";
+                defense = "Orbiting\nbullet \n scaling ";
+                if (UnityEngine.ColorUtility.TryParseHtmlString("#800094", out color))
+                {
+                    button.style.backgroundColor = color;
+                }
+            }
+            else if (choiceId == "agility")
+            {
+                if (UnityEngine.ColorUtility.TryParseHtmlString("#840094", out color))
+                {
+                    button.style.backgroundColor = color;
+                }
+            }
+            else if (choiceId == "dexterity")
+            {
+                if (UnityEngine.ColorUtility.TryParseHtmlString("#939600", out color))
+                {
+                    button.style.backgroundColor = color;
+                }
+            }
+            else if (choiceId == "health")
+            {
+                if (UnityEngine.ColorUtility.TryParseHtmlString("#940000", out color))
+                {
+                    button.style.backgroundColor = color;
+                }
+            }
+            else if (choiceId == "strength")
+            {
+                if (UnityEngine.ColorUtility.TryParseHtmlString("#060076", out color))
+                {
+                    button.style.backgroundColor = color;
+                }
             }
             if (current != "--")
             {
-                button.text = $"{FormatChoiceName(choiceId)}\n{current} -> {future}\n{defense}";
+                button.text = $"<color=#000000>{FormatChoiceName(choiceId)}</color>\n<color=#edc709>{current}->{future}<color>\n{defense}";
                 return;
-                
+
             }
+            
         }
 
         
-        button.text = $"{FormatChoiceName(choiceId)}\n{GetAbilityDescription(choiceId)}";
+        button.text = $"<color=#000000>{FormatChoiceName(choiceId)}<color>\n{GetAbilityDescription(choiceId)}";
     }
     private string GetAbilityDescription(string choiceId)
     {
         switch (choiceId)
         {
             case "melee": return "melee attack";
-            case "orbit": return "orbiting Bullets\n that circle \n the player";
+            case "orbit": return "orbiting\n Bullets\n that circle \n the player";
            
             default: return "";
         }
