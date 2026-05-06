@@ -68,7 +68,7 @@ public class Stats : MonoBehaviour
         }
     }
 
-    private void IncreaseFlatHealth(int amount)
+    public void IncreaseFlatHealth(int amount)
     {
         flatHealthBonus += amount;
     }
