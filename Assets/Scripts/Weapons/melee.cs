@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -17,6 +18,9 @@ public class Melee : MonoBehaviour
 
     private readonly List<Collider2D> targets = new List<Collider2D>();
     int damage;
+
+    public SpriteRenderer visual1;
+    public SpriteRenderer visual2;
 
     void Start()
     {
@@ -50,7 +54,10 @@ public class Melee : MonoBehaviour
 
     void PerformAttack()
     {
-        
+        visual1.color = Color.darkRed;
+        visual2.color = Color.darkRed;
+
+        StartCoroutine(VisualTimer());
 
         if (stats != null)
             damage = Mathf.RoundToInt(damage * stats.damageMultiplier);
@@ -80,6 +87,13 @@ public class Melee : MonoBehaviour
 
             }
         }
+    }
+
+    IEnumerator VisualTimer()
+    {
+        yield return new WaitForSeconds(.1f);
+        visual1.color = Color.white;
+        visual2.color = Color.white;
     }
 
     void OnTriggerEnter2D(Collider2D collision)

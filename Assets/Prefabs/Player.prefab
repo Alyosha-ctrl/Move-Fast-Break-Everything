@@ -4877,6 +4877,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8702587399024538855}
   - component: {fileID: 2662208206561109266}
+  - component: {fileID: 635733725405705193}
   m_Layer: 0
   m_Name: Visual (1)
   m_TagString: Untagged
@@ -4958,6 +4959,28 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!95 &635733725405705193
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2342641488577961355}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 257345804dca2e44d98a4a528dc936a7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3863297185283406450
 GameObject:
   m_ObjectHideFlags: 0
@@ -5714,6 +5737,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8075273302283552614, guid: e01566ec73646374ca39b3456749914d, type: 3}
+      propertyPath: visual1
+      value: 
+      objectReference: {fileID: 9000498106450745806}
+    - target: {fileID: 8075273302283552614, guid: e01566ec73646374ca39b3456749914d, type: 3}
+      propertyPath: visual2
+      value: 
+      objectReference: {fileID: 2662208206561109266}
+    - target: {fileID: 8075273302283552614, guid: e01566ec73646374ca39b3456749914d, type: 3}
       propertyPath: weaponSO
       value: 
       objectReference: {fileID: 11400000, guid: 64469edee5a3f454aae1b5571c5215e0, type: 2}
@@ -5732,5 +5763,10 @@ PrefabInstance:
 --- !u!4 &2956268541207477328 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7591769375601491304, guid: e01566ec73646374ca39b3456749914d, type: 3}
+  m_PrefabInstance: {fileID: 4638044153035292984}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &9000498106450745806 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 4374567274165410038, guid: e01566ec73646374ca39b3456749914d, type: 3}
   m_PrefabInstance: {fileID: 4638044153035292984}
   m_PrefabAsset: {fileID: 0}
