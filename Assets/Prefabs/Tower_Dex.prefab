@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9200579047571018720}
   - component: {fileID: 1086677870146142855}
+  - component: {fileID: 2996925827536983021}
   m_Layer: 0
   m_Name: Tower_Dex
   m_TagString: Untagged
@@ -92,6 +93,21 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &2996925827536983021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 456401154573417084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 197ffa0a1b4eac54a8ae67603b556b8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tower_Dex
+  towerText: {fileID: 9162562314894836983}
+  towerName: Tower
+  rewardText: +20% Stat
 --- !u!1 &4265192692884902964
 GameObject:
   m_ObjectHideFlags: 0

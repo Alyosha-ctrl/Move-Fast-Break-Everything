@@ -30,13 +30,6 @@ public abstract class Tower_Base : MonoBehaviour
         }
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            Tower_Base.TryInteractCurrent();
-        }
-    }
 
     public static void TryInteractCurrent()
     {

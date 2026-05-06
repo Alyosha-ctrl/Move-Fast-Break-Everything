@@ -106,6 +106,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56d4d43df7db66742abdf4c45eb325a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  towerText: {fileID: 8141088704627469684}
+  towerName: Tower
+  rewardText: +20% Stat
   pierceBoost: 0.2
   thornsBoost: 0.2
 --- !u!61 &4781511635218230573

@@ -346,6 +346,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37ec41ab61450404985aa72ad5837725, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  towerText: {fileID: 6062214037360702883}
+  towerName: Tower
+  rewardText: +20% Stat
   healthBoost: 0.2
 --- !u!61 &70116350690702870
 BoxCollider2D:

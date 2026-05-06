@@ -106,6 +106,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23046308fb550964c831937d16335253, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tower_Defense
+  towerText: {fileID: 495542047176359572}
+  towerName: Tower
+  rewardText: +20% Stat
 --- !u!61 &4781511635218230573
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -209,6 +209,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f521d31b4b424b44bb286271576a31f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  towerText: {fileID: 7671623404789040661}
+  towerName: Tower
+  rewardText: +20% Stat
   speedIncrease: 0.1
   damageIncrease: 0.1
   flatHealthIncrease: 2
