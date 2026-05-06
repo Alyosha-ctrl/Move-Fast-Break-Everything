@@ -1,10 +1,12 @@
+@import url("ColorTokens.uss");
+
 :root {
-    --menu-background: rgb(12, 16, 24);
-    --menu-copy: rgb(235, 239, 244);
-    --menu-copy-muted: rgb(175, 185, 201);
-    --menu-button-hover: rgb(239, 191, 99);
-    --menu-button-press: rgb(255, 220, 148);
-    --menu-accent: rgb(239, 191, 99);
+    --menu-background: var(--color-surface-base);
+    --menu-copy: var(--color-text-body);
+    --menu-copy-muted: var(--color-text-muted);
+    --menu-button-hover: var(--color-accent);
+    --menu-button-press: var(--color-accent-bright);
+    --menu-accent: var(--color-accent);
 }
 
 .main-menu {
@@ -41,7 +43,7 @@
     margin-top: 12px;
     padding: 2px 4px 2px 0;
     color: var(--menu-copy-muted);
-    background-color: rgba(0, 0, 0, 0);
+    background-color: var(--color-overlay-clear);
     border-top-width: 0;
     border-right-width: 0;
     border-bottom-width: 0;
@@ -53,7 +55,7 @@
 }
 
 .main-menu__button:hover {
-    background-color: rgba(0, 0, 0, 0);
+    background-color: var(--color-overlay-clear);
     color: var(--menu-button-hover);
 }
 
@@ -74,7 +76,7 @@
     top: 0;
     bottom: 0;
     align-items: center;
-    background-color: rgba(4, 6, 10, 0.92);
+    background-color: var(--color-overlay-panel);
     padding: 24px 48px 32px;
 }
 
@@ -95,7 +97,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    background-color: rgb(5, 8, 8);
+    background-color: var(--color-surface-deep);
     border-color: var(--menu-accent);
     border-width: 2px;
     border-radius: 4px;
@@ -118,7 +120,7 @@
 }
 
 .shop-menu__coin-label {
-    color: rgb(255, 255, 255);
+    color: var(--color-text-primary);
     font-size: 32px;
     -unity-font-style: bold;
     -unity-text-align: middle-center;
@@ -134,20 +136,25 @@
 .shop-menu__back-button {
     width: 150px;
     height: 58px;
-    color: rgb(255, 255, 255);
-    background-color: rgb(163, 38, 29);
-    border-color: var(--menu-accent);
+    color: var(--color-text-primary);
+    background-color: var(--color-button-danger);
+    border-color: var(--color-button-border);
     border-width: 2px;
     border-radius: 4px;
     font-size: 24px;
     -unity-font-style: bold;
 }
 
+.shop-menu__back-button:hover {
+    background-color: var(--color-button-danger-hover);
+    border-color: var(--color-button-border-hover);
+}
+
 .shop-menu__panel {
     width: 760px;
     max-width: 100%;
     flex-grow: 1;
-    background-color: rgb(73, 79, 112);
+    background-color: var(--color-surface-panel);
     border-color: var(--menu-accent);
     border-width: 2px;
     border-radius: 4px;
@@ -155,7 +162,7 @@
 }
 
 .shop-menu__title {
-    color: rgb(255, 255, 255);
+    color: var(--color-text-primary);
     font-size: 36px;
     -unity-font-style: bold;
     -unity-text-align: middle-center;
@@ -168,9 +175,9 @@
     max-width: 100%;
     height: 58px;
     margin-bottom: 16px;
-    color: rgb(255, 255, 255);
-    background-color: rgb(64, 92, 230);
-    border-color: rgb(255, 238, 145);
+    color: var(--color-text-primary);
+    background-color: var(--color-action-primary);
+    border-color: var(--color-accent-bright);
     border-width: 2px;
     border-radius: 5px;
     font-size: 28px;
@@ -178,13 +185,14 @@
 }
 
 .shop-menu__refund-button:hover {
-    background-color: rgb(80, 108, 248);
+    background-color: var(--color-action-primary-hover);
+    border-color: var(--color-button-border-hover);
 }
 
 .shop-menu__refund-button:disabled {
-    color: rgb(190, 190, 190);
-    background-color: rgb(88, 88, 88);
-    border-color: rgb(180, 154, 90);
+    color: var(--color-text-disabled);
+    background-color: var(--color-action-disabled);
+    border-color: var(--color-action-disabled-border);
 }
 
 .shop-menu__item-scroll {
@@ -196,8 +204,8 @@
 .shop-menu__item-card {
     min-height: 86px;
     margin-bottom: 8px;
-    background-color: rgb(139, 136, 66);
-    border-color: rgb(236, 181, 83);
+    background-color: var(--color-surface-card);
+    border-color: var(--color-accent);
     border-width: 2px;
     border-radius: 3px;
     padding: 10px;
@@ -213,8 +221,8 @@
     height: 48px;
     align-items: center;
     justify-content: center;
-    background-color: rgb(20, 29, 37);
-    border-color: rgb(237, 196, 101);
+    background-color: var(--color-surface-frame);
+    border-color: var(--color-accent);
     border-width: 2px;
     margin-right: 12px;
 }
@@ -230,12 +238,12 @@
 }
 
 .shop-menu__item-card--selected {
-    background-color: rgb(168, 158, 78);
-    border-color: rgb(255, 238, 145);
+    background-color: var(--color-surface-card-selected);
+    border-color: var(--color-accent-bright);
 }
 
 .shop-menu__item-title {
-    color: rgb(255, 255, 255);
+    color: var(--color-text-primary);
     font-size: 22px;
     -unity-font-style: bold;
     -unity-text-align: middle-left;
@@ -251,13 +259,13 @@
     height: 16px;
     margin-left: 2px;
     margin-right: 2px;
-    background-color: rgb(38, 16, 42);
-    border-color: rgb(237, 196, 101);
+    background-color: var(--color-surface-track);
+    border-color: var(--color-accent);
     border-width: 1px;
 }
 
 .shop-menu__rank-pip--filled {
-    background-color: rgb(242, 212, 89);
+    background-color: var(--color-accent);
 }
 
 .shop-menu__details {
@@ -266,7 +274,7 @@
     max-height: 150px;
     flex-direction: row;
     align-items: center;
-    background-color: rgb(150, 150, 150);
+    background-color: var(--color-surface-detail);
     border-color: var(--menu-accent);
     border-width: 2px;
     border-radius: 3px;
@@ -282,8 +290,8 @@
     max-height: 76px;
     align-items: center;
     justify-content: center;
-    background-color: rgb(20, 29, 37);
-    border-color: rgb(237, 196, 101);
+    background-color: var(--color-surface-frame);
+    border-color: var(--color-accent);
     border-width: 2px;
     margin-right: 18px;
 }
@@ -307,13 +315,13 @@
 }
 
 .shop-menu__detail-title {
-    color: rgb(255, 255, 255);
+    color: var(--color-text-primary);
     font-size: 22px;
     -unity-font-style: bold;
 }
 
 .shop-menu__detail-description {
-    color: rgb(255, 255, 255);
+    color: var(--color-text-primary);
     font-size: 16px;
     height: 42px;
     min-height: 42px;
@@ -323,7 +331,7 @@
 }
 
 .shop-menu__detail-rank {
-    color: rgb(255, 244, 201);
+    color: var(--color-text-highlight);
     font-size: 16px;
     -unity-font-style: bold;
     height: 20px;
@@ -366,7 +374,7 @@
 }
 
 .shop-menu__detail-cost {
-    color: rgb(255, 255, 255);
+    color: var(--color-text-primary);
     font-size: 22px;
     -unity-font-style: bold;
     -unity-text-align: middle-center;
@@ -380,11 +388,16 @@
 .shop-menu__buy-button {
     width: 120px;
     height: 52px;
-    color: rgb(255, 255, 255);
-    background-color: rgb(49, 166, 76);
-    border-color: var(--menu-accent);
+    color: var(--color-text-primary);
+    background-color: var(--color-action-success);
+    border-color: var(--color-button-border);
     border-width: 2px;
     border-radius: 4px;
     font-size: 22px;
     -unity-font-style: bold;
+}
+
+.shop-menu__buy-button:hover {
+    background-color: var(--color-action-success-hover);
+    border-color: var(--color-button-border-hover);
 }

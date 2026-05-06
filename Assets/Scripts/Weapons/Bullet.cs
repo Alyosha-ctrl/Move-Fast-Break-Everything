@@ -11,6 +11,7 @@ public class Bullet : MonoBehaviour
 
     private GameObject owner;
     public WeaponSO weaponSO;
+    public SoundDefinition launchSound;
     private Vector2 moveDirection;
 
     private Stats stats;
@@ -31,6 +32,7 @@ public class Bullet : MonoBehaviour
         damage = damageAmount;
         pierce = pierceAmount;
 
+        SoundManager.Play(launchSound);
         RotateBullet();
         Destroy(gameObject, lifetime);
     }

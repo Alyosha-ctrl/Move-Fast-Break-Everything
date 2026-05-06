@@ -37,6 +37,11 @@ public class Melee : MonoBehaviour
         damage+=amount;
         Debug.Log("Damage increased by " + damage);
     }
+    public void hitSpeedIncrease(float amount)
+    {
+        attackInterval -= amount;
+        Debug.Log("Attack speed increased by " + amount);
+    }
 
     void Update()
     {

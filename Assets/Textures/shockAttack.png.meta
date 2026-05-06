@@ -1,0 +1,258 @@
+fileFormatVersion: 2
+guid: 3403d4d03bc00344a962c292351f4a13
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5072416572627509988
+    second: shockAttack-removebg-preview_0
+  - first:
+      213: 6545285400738844447
+    second: shockAttack-removebg-preview_1
+  - first:
+      213: -8229540164583518359
+    second: shockAttack-removebg-preview_2
+  - first:
+      213: 5111553786916893163
+    second: shockAttack-removebg-preview_3
+  - first:
+      213: 3729012142122514667
+    second: shockAttack-removebg-preview_4
+  - first:
+      213: 352608729175783436
+    second: shockAttack-removebg-preview_5
+  - first:
+      213: 3418659375337452358
+    second: shockAttack-removebg-preview_6
+  - first:
+      213: 8643992842562268177
+    second: shockAttack-removebg-preview_7
+  - first:
+      213: -466896818345107556
+    second: shockAttack-removebg-preview_8
+  - first:
+      213: 1487992250082151097
+    second: shockAttack-removebg-preview_9
+  - first:
+      213: -3330252515852084510
+    second: shockAttack-removebg-preview_10
+  - first:
+      213: -3859249858058386750
+    second: shockAttack-removebg-preview_11
+  - first:
+      213: 3698153442174092117
+    second: shockAttack-removebg-preview_12
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: shockAttack-removebg-preview_0
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 70
+        width: 60
+        height: 60
+      alignment: 9
+      pivot: {x: 0.5585645, y: 0.50000054}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e2644c7ff7d46640800000000000000
+      internalID: 5072416572627509988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shockAttack-removebg-preview_2
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 70
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96f803182dccacd80800000000000000
+      internalID: -8229540164583518359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shockAttack-removebg-preview_3
+      rect:
+        serializedVersion: 2
+        x: 634
+        y: 70
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be1fb774613efe640800000000000000
+      internalID: 5111553786916893163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shockAttack-removebg-preview_4
+      rect:
+        serializedVersion: 2
+        x: 892
+        y: 70
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be8b45e39cc10c330800000000000000
+      internalID: 3729012142122514667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 664dd1f4aa3f09f4e89a1204a007d0ba
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      shockAttack-removebg-preview_0: 5072416572627509988
+      shockAttack-removebg-preview_1: 6545285400738844447
+      shockAttack-removebg-preview_10: -3330252515852084510
+      shockAttack-removebg-preview_11: -3859249858058386750
+      shockAttack-removebg-preview_12: 3698153442174092117
+      shockAttack-removebg-preview_2: -8229540164583518359
+      shockAttack-removebg-preview_3: 5111553786916893163
+      shockAttack-removebg-preview_4: 3729012142122514667
+      shockAttack-removebg-preview_5: 352608729175783436
+      shockAttack-removebg-preview_6: 3418659375337452358
+      shockAttack-removebg-preview_7: 8643992842562268177
+      shockAttack-removebg-preview_8: -466896818345107556
+      shockAttack-removebg-preview_9: 1487992250082151097
+      shockAttack_0: -473059898
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
