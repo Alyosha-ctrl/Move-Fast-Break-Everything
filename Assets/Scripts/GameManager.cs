@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -56,10 +57,19 @@ public class GameManager : MonoBehaviour
     //for weapon
     [SerializeField] private GameObject player;
     private const string RandomButtonName = "random-button";
+    private const string RandomButtonName2 = "random-button-2";
+    private const string RandomButtonName3 = "random-button-3";
     private List<string> randomOptions = new List<string>()
     {
+        //weapons
         "melee",
-        "orbit"
+        "orbit",
+        //actual levels
+        "health",
+        "strength",
+        "dexterity",
+        "agility",
+        "defense"
     };
     private string _currentRandomChoice;
 
@@ -96,6 +106,8 @@ public class GameManager : MonoBehaviour
     private int previousEnemyLevel = 1;
 
     private Button _randomButton;
+    private Button _randomButton2;
+    private Button _randomButton3;
 
     public static GameManager Instance { get; private set; }
     public static float CurrentRunTimeSeconds => Instance != null ? Instance._currentRunTime : 0f;
@@ -160,7 +172,11 @@ public class GameManager : MonoBehaviour
         _pauseStatPierceIcon = root.Q<Image>(PauseStatPierceIconName);
         _pauseStatThornsIcon = root.Q<Image>(PauseStatThornsIconName);
         _gameOverRoot = root.Q<VisualElement>(GameOverRootName);
+
+        //random choices
         _randomButton = root.Q<Button>(RandomButtonName);
+        _randomButton2 = root.Q<Button>(RandomButtonName2);
+        _randomButton3 = root.Q<Button>(RandomButtonName3);
 
         var strengthButton = root.Q<Button>(StrengthButtonName);
         var dexterityButton = root.Q<Button>(DexterityButtonName);
@@ -171,13 +187,22 @@ public class GameManager : MonoBehaviour
         var retryButton = root.Q<Button>(RetryButtonName);
         var gameOverQuitButton = root.Q<Button>(GameOverQuitButtonName);
         var optionsCloseButton = root.Q<Button>(OptionsMenuView.CloseButtonName);
+
         var randomButton = root.Q<Button>(RandomButtonName);
+        var randomButton2 = root.Q<Button>(RandomButtonName2);
+        var randomButton3 = root.Q<Button>(RandomButtonName3);
 
-        if (randomButton != null) randomButton.clicked += () => ResolveLevelUpChoice(_currentRandomChoice);
 
-        if (strengthButton != null) strengthButton.clicked += () => ResolveLevelUpChoice("strength");
-        if (dexterityButton != null) dexterityButton.clicked += () => ResolveLevelUpChoice("dexterity");
-        if (intelligenceButton != null) intelligenceButton.clicked += () => ResolveLevelUpChoice("intelligence");
+        if (_randomButton != null)
+            _randomButton.clicked += () => ResolveLevelUpChoice(_choice1);
+
+        if (_randomButton2 != null)
+            _randomButton2.clicked += () => ResolveLevelUpChoice(_choice2);
+
+        if (_randomButton3 != null)
+            _randomButton3.clicked += () => ResolveLevelUpChoice(_choice3);
+
+
         if (resumeButton != null) resumeButton.clicked += ResumeGame;
         if (pauseOptionsButton != null) pauseOptionsButton.clicked += OpenPauseOptions;
         if (pauseQuitButton != null) pauseQuitButton.clicked += QuitToMenu;
@@ -290,29 +315,85 @@ public class GameManager : MonoBehaviour
         FourthOption();
     }
 
+
+
+    private string _choice1;
+    private string _choice2;
+    private string _choice3;
+
+
     private void FourthOption()
     {
-       
-        var root = uiDocument.rootVisualElement;
-        var randomButton = root.Q<Button>(RandomButtonName);
-        if (randomButton == null) return;
+        if (randomOptions.Count == 0) return;
 
-        if (randomOptions.Count == 0)
+        List<string> pool = new List<string>(randomOptions);
+
+        _choice1 = GetRandomFromPool(pool);
+        _choice2 = GetRandomFromPool(pool);
+        _choice3 = GetRandomFromPool(pool);
+
+        SetButtonTextWithPreview(_randomButton, _choice1);
+        SetButtonTextWithPreview(_randomButton2, _choice2);
+        SetButtonTextWithPreview(_randomButton3, _choice3);
+
+        if (_randomButton != null) _randomButton.style.display = DisplayStyle.Flex;
+        if (_randomButton2 != null) _randomButton2.style.display = DisplayStyle.Flex;
+        if (_randomButton3 != null) _randomButton3.style.display = DisplayStyle.Flex;
+    }
+
+    private string GetRandomFromPool(List<string> pool)
+    {
+        if (pool.Count == 0) return null;
+
+        int index = UnityEngine.Random.Range(0, pool.Count);
+        string choice = pool[index];
+        pool.RemoveAt(index);
+        return choice;
+    }
+    private void SetButtonTextWithPreview(Button button, string choiceId)
+    {
+        if (button == null || string.IsNullOrEmpty(choiceId)) return;
+
+        
+        if (_playerStats != null)
         {
-            randomButton.style.display = DisplayStyle.None;
-            return;
+            var preview = _playerStats.GetPreview(choiceId);
+            string current = preview.current;
+            string future = preview.future;
+
+            button.text = $"{choiceId}\n{current} -> {future}";
+            string defense = "";
+      
+            if(choiceId=="defense")
+            {
+                defense = "Orbiting bullet scaling";
+            }
+            if (current != "--")
+            {
+                button.text = $"{FormatChoiceName(choiceId)}\n{current} -> {future}\n{defense}";
+                return;
+                
+            }
         }
 
-        int index = UnityEngine.Random.Range(0, randomOptions.Count);
-        _currentRandomChoice = randomOptions[index];
-
-        randomButton.text = _currentRandomChoice;
-
-        // Show the button if it was hidden
-        randomButton.style.display = DisplayStyle.Flex;
+        
+        button.text = $"{FormatChoiceName(choiceId)}\n{GetAbilityDescription(choiceId)}";
     }
-    
-
+    private string GetAbilityDescription(string choiceId)
+    {
+        switch (choiceId)
+        {
+            case "melee": return "melee attack";
+            case "orbit": return "orbiting Bullets\n that circle \n the player";
+           
+            default: return "";
+        }
+    }
+    private string FormatChoiceName(string id)
+    {
+        if (string.IsNullOrEmpty(id)) return "";
+        return char.ToUpper(id[0]) + id.Substring(1);
+    }
     private void ResolveLevelUpChoice(string choiceId)
     {
         EnablePlayerAbility(choiceId);
@@ -336,8 +417,16 @@ public class GameManager : MonoBehaviour
         if (_randomButton != null)
         {
             _randomButton.style.display = DisplayStyle.None;
-            
         }
+        if (_randomButton2 != null)
+        {
+            _randomButton2.style.display = DisplayStyle.None;
+        }
+        if (_randomButton3 != null)
+        {
+            _randomButton3.style.display = DisplayStyle.None;
+        }
+        
         Time.timeScale = 1f;
         _playerLevelUp.ResolveLevelUpChoice();
     }
