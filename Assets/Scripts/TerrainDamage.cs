@@ -7,6 +7,9 @@ public class TerrainDamage : MonoBehaviour
     [SerializeField] private Jump jump;
     [SerializeField] private int hazardDamage = 1;
     [SerializeField] private int deathDamage = 2;
+    [SerializeField] private float damageInterval = 1f;
+    
+    private float damageTimer;
     
     private void Awake()
     {
@@ -22,17 +25,32 @@ public class TerrainDamage : MonoBehaviour
             return;
         }
         
+        damageTimer -= Time.deltaTime;
         Vector2 currentPosition = transform.position;
         
         if (chunkManager.IsDeathTerrain(currentPosition))
         {
-            player.TakeDamage(deathDamage);
+            DamageTick(deathDamage);
             return;
         }
         
         if (chunkManager.IsHazardTerrain(currentPosition))
         {
-            player.TakeDamage(hazardDamage);
+            DamageTick(hazardDamage);
+            return;
         }
+        
+        damageTimer = 0f;
+    }
+    
+    private void DamageTick(int damage)
+    {
+        if (damageTimer > 0f)
+        {
+            return;
+        }
+        
+        player.TakeDamage(damage);
+        damageTimer = damageInterval;
     }
 }

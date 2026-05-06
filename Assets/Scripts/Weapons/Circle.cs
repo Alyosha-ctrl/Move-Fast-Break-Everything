@@ -14,10 +14,13 @@ public class Circle : MonoBehaviour
     public void Start()
     {
         AddWeapon();
-        AddWeapon();
-        AddWeapon();
+
     
 
+    }
+    public void increaseRotationSpeed(float amount)
+    {
+        rotationSpeed += amount;
     }
     void Update()
     {
