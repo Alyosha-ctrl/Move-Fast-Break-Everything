@@ -6,8 +6,8 @@ public class Tower_Defense : Tower_Base
     
         private void Awake()
     {
-        towerName = "Agility Mod";
-        rewardText = "AGILITY +20%";
+        towerName = "DEFENSE Mod";
+        rewardText = "DEFENSE +20%";
     }
 
     protected override void ApplyEffect(Stats stats)

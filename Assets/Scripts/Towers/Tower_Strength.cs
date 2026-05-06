@@ -7,8 +7,8 @@ public class Tower_Strength : Tower_Base
 
         private void Awake()
     {
-        towerName = "Agility Mod";
-        rewardText = "AGILITY +20%";
+        towerName = "STRENGTH Mod";
+        rewardText = "STRENGTH +20%";
     }
 
     protected override void ApplyEffect(Stats stats)
