@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour
     private Transform playerLocation;
     private float currentHealth;
     public bool CanBeShot => canBeShot;
+    private Player _player;
 
     // public int damageMultiplier;
     //damage mult will be increased when enemy levls up using similar level up system to player, but for now just a base damage
@@ -33,6 +34,7 @@ public class Enemy : MonoBehaviour
     private void Awake()
     {
         stats = GetComponent<EnemyStats>();
+        _player = FindAnyObjectByType<Player>();
     }
     
     public void TakeDamage(int damageTaken, float pierce)
@@ -131,12 +133,11 @@ public class Enemy : MonoBehaviour
         //Doesn't exactly seem likely to stick around for long
         //So might want to replace with a method that finds the player in a more abstract way.
         float speed = (stats != null) ? stats.GetSpeed() : moveSpeed;
-        TestMovement player = FindAnyObjectByType<TestMovement>();
 
-        if (player != null)
+        if (_player != null)
         {
             //Small note, for some reason the enemy is in front of the trees because it teleports to z 0
-            playerLocation = FindAnyObjectByType<TestMovement>().transform;
+            playerLocation = _player.transform;
             Vector3 newPosition = Vector3.MoveTowards(transform.localPosition, playerLocation.localPosition, speed * Time.fixedDeltaTime);
 
             //Replaced with rigidbody to stay more consistent
