@@ -37,6 +37,5 @@ public class Tower_Level : Tower_Base
         }
 
         Debug.Log("All stats increased!");
-
     }
 }

@@ -16,7 +16,6 @@ public class Tower_Agility : Tower_Base
         stats.IncreaseRangedDamage(rangeDMGboost);
         Debug.Log("Speed upgrade: " + stats.speedMultiplier);
         Debug.Log("RangeDMG upgrade: " + stats.rangedDamageMultiplier);
-
     }
 
 }
