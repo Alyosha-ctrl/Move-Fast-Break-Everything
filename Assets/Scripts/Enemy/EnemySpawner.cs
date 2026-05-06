@@ -18,23 +18,36 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float respawnDistance = 40f;
     [SerializeField] private SpawnPhase[] spawnPhases;
 
-    [SerializeField] private GameObject bossPrefab;
+    [SerializeField] private GameObject boss1Prefab;
+    [SerializeField] private GameObject boss2Prefab;
+    [SerializeField] private GameObject boss3Prefab;
     [SerializeField] private CinemachineCamera virtualCamera;
-    [SerializeField] private float bossSpawnTime = 120f;
+    [SerializeField] private float boss1SpawnTime = 120f;
+    [SerializeField] private float boss2SpawnTime = 600f;
+    [SerializeField] private float boss3SpawnTime = 900f;
     
     private bool bossSpawned = false;
     private bool bossActive = false;
     
     private readonly List<GameObject> activeEnemies = new();
     private float spawnTimer;
+
+    private void Awake()
+    {
+        StartCoroutine(SpawnBossTimed(boss1SpawnTime, boss1Prefab));
+        StartCoroutine(SpawnBossTimed(boss2SpawnTime, boss2Prefab));
+        StartCoroutine(SpawnBossTimed(boss3SpawnTime, boss3Prefab));
+    }
     
     private void Update()
     {
-        if (!bossSpawned && GameManager.CurrentRunTimeSeconds >= bossSpawnTime)
-        {
-            SpawnBoss();
-            return;
-        }
+        // if (!bossSpawned && GameManager.CurrentRunTimeSeconds >= boss3SpawnTime)
+        // {
+        //     SpawnBoss();
+        //     return;
+        // }
+        
+        
 
         if (bossActive) return;
 
@@ -79,7 +92,14 @@ public class EnemySpawner : MonoBehaviour
         activeEnemies.Add(enemy);
     }
 
-    private void SpawnBoss()
+    private System.Collections.IEnumerator SpawnBossTimed(float time, GameObject bossPrefab)
+    {
+        yield return new WaitForSeconds(time);
+        SpawnBoss(bossPrefab);
+
+    }
+
+    private void SpawnBoss(GameObject bossPrefab)
     {
         bossSpawned = true;
         bossActive = true;
@@ -93,6 +113,7 @@ public class EnemySpawner : MonoBehaviour
     public void OnBossDied()
     {
         bossActive = false;
+        //Spawn a shit ton of exp.
     }
     
     // Picks random position around player at a set distance

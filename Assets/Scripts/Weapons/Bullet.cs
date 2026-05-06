@@ -57,7 +57,7 @@ public class Bullet : MonoBehaviour
             return;
         }
 
-        if (collision.gameObject == owner) return;
+        if (collision.gameObject == owner || collision.CompareTag("Ignore")) return;
 
         Player player = collision.GetComponent<Player>();
         Enemy enemy = collision.GetComponent<Enemy>();
