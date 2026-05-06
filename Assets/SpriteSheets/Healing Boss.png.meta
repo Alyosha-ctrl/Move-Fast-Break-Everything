@@ -1,19 +1,25 @@
 fileFormatVersion: 2
-guid: a3faa8ad333ef8742b810672f624864c
+guid: 87a5ee55870f0eb499e6145e4d9ad03b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2730922267909493505
-    second: BloodBattery_0
+      213: 7966827210283578210
+    second: Healing Boss_0
   - first:
-      213: 2592286902835720594
-    second: BloodBattery_1
+      213: -7839736370472501769
+    second: Healing Boss_1
   - first:
-      213: 8894539904701804092
-    second: BloodBattery_2
+      213: -4477805556628378848
+    second: Healing Boss_2
   - first:
-      213: 761089985218563397
-    second: BloodBattery_3
+      213: -6004704881165431555
+    second: Healing Boss_3
+  - first:
+      213: 4813873150669096199
+    second: Healing Boss_4
+  - first:
+      213: -9145479726724208662
+    second: Healing Boss_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -60,7 +66,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 20
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -109,12 +115,56 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BloodBattery_0
+      name: Healing Boss_0
       rect:
         serializedVersion: 2
-        x: 11
+        x: 9
+        y: 74
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2637edf332bdf8e60800000000000000
+      internalID: 7966827210283578210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Healing Boss_1
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 74
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7fdb649ce49a33390800000000000000
+      internalID: -7839736370472501769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Healing Boss_2
+      rect:
+        serializedVersion: 2
+        x: 9
         y: 42
-        width: 9
+        width: 13
         height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -124,19 +174,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 10313f7655f26e520800000000000000
-      internalID: 2730922267909493505
+      spriteID: 02b25e71293abd1c0800000000000000
+      internalID: -4477805556628378848
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BloodBattery_1
+      name: Healing Boss_3
       rect:
         serializedVersion: 2
-        x: 43
-        y: 41
-        width: 9
+        x: 41
+        y: 42
+        width: 13
         height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -146,19 +196,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 291bb6f1437a9f320800000000000000
-      internalID: 2592286902835720594
+      spriteID: dfc841199b00baca0800000000000000
+      internalID: -6004704881165431555
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BloodBattery_2
+      name: Healing Boss_4
       rect:
         serializedVersion: 2
-        x: 11
+        x: 9
         y: 10
-        width: 9
+        width: 13
         height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -168,19 +218,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c3ea9440be0cf6b70800000000000000
-      internalID: 8894539904701804092
+      spriteID: 7050c6320205ec240800000000000000
+      internalID: 4813873150669096199
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BloodBattery_3
+      name: Healing Boss_5
       rect:
         serializedVersion: 2
-        x: 43
-        y: 11
-        width: 9
+        x: 41
+        y: 10
+        width: 13
         height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -190,8 +240,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 54d4f032f4fef8a00800000000000000
-      internalID: 761089985218563397
+      spriteID: ae72114b4aab41180800000000000000
+      internalID: -9145479726724208662
       vertices: []
       indices: 
       edges: []
@@ -210,10 +260,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      BloodBattery_0: 2730922267909493505
-      BloodBattery_1: 2592286902835720594
-      BloodBattery_2: 8894539904701804092
-      BloodBattery_3: 761089985218563397
+      Healing Boss_0: 7966827210283578210
+      Healing Boss_1: -7839736370472501769
+      Healing Boss_2: -4477805556628378848
+      Healing Boss_3: -6004704881165431555
+      Healing Boss_4: 4813873150669096199
+      Healing Boss_5: -9145479726724208662
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

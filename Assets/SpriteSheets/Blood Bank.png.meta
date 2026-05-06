@@ -1,19 +1,10 @@
 fileFormatVersion: 2
-guid: a3faa8ad333ef8742b810672f624864c
+guid: 122d87de8f6be4a49b97b03b252d8aa9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2730922267909493505
-    second: BloodBattery_0
-  - first:
-      213: 2592286902835720594
-    second: BloodBattery_1
-  - first:
-      213: 8894539904701804092
-    second: BloodBattery_2
-  - first:
-      213: 761089985218563397
-    second: BloodBattery_3
+      213: 8007614928655844256
+    second: Blood Bank_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -60,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 20
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -109,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BloodBattery_0
+      name: Blood Bank_0
       rect:
         serializedVersion: 2
-        x: 11
-        y: 42
-        width: 9
-        height: 13
+        x: 10
+        y: 6
+        width: 12
+        height: 21
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,74 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 10313f7655f26e520800000000000000
-      internalID: 2730922267909493505
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BloodBattery_1
-      rect:
-        serializedVersion: 2
-        x: 43
-        y: 41
-        width: 9
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 291bb6f1437a9f320800000000000000
-      internalID: 2592286902835720594
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BloodBattery_2
-      rect:
-        serializedVersion: 2
-        x: 11
-        y: 10
-        width: 9
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c3ea9440be0cf6b70800000000000000
-      internalID: 8894539904701804092
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BloodBattery_3
-      rect:
-        serializedVersion: 2
-        x: 43
-        y: 11
-        width: 9
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 54d4f032f4fef8a00800000000000000
-      internalID: 761089985218563397
+      spriteID: 0a385a8f953c02f60800000000000000
+      internalID: 8007614928655844256
       vertices: []
       indices: 
       edges: []
@@ -210,10 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      BloodBattery_0: 2730922267909493505
-      BloodBattery_1: 2592286902835720594
-      BloodBattery_2: 8894539904701804092
-      BloodBattery_3: 761089985218563397
+      Blood Bank_0: 8007614928655844256
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using System.Runtime.CompilerServices;
+using UnityEditor.Animations;
 
 public class Player : MonoBehaviour
 {
@@ -36,6 +37,8 @@ public class Player : MonoBehaviour
 
     public float bleedInterval = 5f;
     private float bleedTimer = 0f;
+
+    public Animator animator;
 
     private void Start()
     {
@@ -81,10 +84,10 @@ public class Player : MonoBehaviour
         if(bleedTimer >= bleedInterval)
         {
             bleedTimer = 0f;
-            float bleedAmount = CurrentHealth/100;
+            float bleedAmount = MaxHealth/10;
             if(bleedAmount <= 1)
             {
-                bleedAmount = .1f;
+                bleedAmount = 1f;
             }
             CurrentHealth -= bleedAmount;
             Debug.Log("Bleed, Lost" + bleedAmount);
@@ -92,7 +95,7 @@ public class Player : MonoBehaviour
             {
                 Die();
             }
-            
+            animator.SetTrigger("IsBleeding");
             NotifyHealthChanged();
         }
     }

@@ -84,7 +84,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 700
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 542025301103887396, guid: 5c10eae01c644ea47bf0acb3d01ecfa4, type: 3}
+  m_Sprite: {fileID: 8007614928655844256, guid: 122d87de8f6be4a49b97b03b252d8aa9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -132,7 +132,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.14, y: 0.14}
+    oldSize: {x: 1.2, y: 2.1}
     newSize: {x: 0.14, y: 0.14}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -156,8 +156,8 @@ MonoBehaviour:
   hurtSound: {fileID: 11400000, guid: eadb7fae66dea244993bdcb800ba7cba, type: 2}
   coinDropPrefab: {fileID: 2628067428879860305, guid: d7f577c1bd02aeb42b50b88bde3fc2ca, type: 3}
   foodDropPrefab: {fileID: 8925891680184177157, guid: d34c44036c787754fbb480f508340bc0, type: 3}
-  coinDropChance: 0.5
-  foodDropChance: 0.3
+  coinDropChance: 0.3
+  foodDropChance: 0.6
 --- !u!114 &5071439206801123456
 MonoBehaviour:
   m_ObjectHideFlags: 0
