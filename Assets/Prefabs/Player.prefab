@@ -24759,6 +24759,7 @@ MonoBehaviour:
   jump: {fileID: 0}
   hazardDamage: 1
   deathDamage: 2
+  damageInterval: 1
 --- !u!114 &6769700025945905945
 MonoBehaviour:
   m_ObjectHideFlags: 0
