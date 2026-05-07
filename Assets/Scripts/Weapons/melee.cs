@@ -29,6 +29,7 @@ public class Melee : MonoBehaviour
 
         Debug.Log("Melee running");
         damage = weaponSO.baseDamage;
+        Debug.Log("Damage: " + weaponSO.baseDamage);
     }
     public void IncreaseDamage(int amount)
     {
@@ -58,7 +59,7 @@ public class Melee : MonoBehaviour
         
 
         if (stats != null)
-            damage = Mathf.RoundToInt(damage * stats.damageMultiplier);
+            damage = Mathf.RoundToInt(weaponSO.baseDamage * stats.damageMultiplier);
 
         foreach (var target in new List<Collider2D>(targets))
         {
@@ -75,6 +76,7 @@ public class Melee : MonoBehaviour
             if (boss != null)
             {
                 boss.TakeDamage(damage);
+                Debug.Log("Boss Damage: " + damage);
                 continue;
             }
 
