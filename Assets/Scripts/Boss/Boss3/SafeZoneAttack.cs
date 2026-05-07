@@ -10,14 +10,13 @@ public class SafeZoneAttack : BossAttack
 
     [Header("Settings")]
     public float safeZoneRadius = 2f;
-    public float damage = 50f;
     public float warningDuration = 1f;
     public float displayDuration = 0.3f;
     public float minDistanceFromBoss = 3f;
     public Color warningColor = new Color(1f, 0.4f, 0f, 0.5f);
     public Color fireColor = new Color(1f, 0.1f, 0f, 1f);
 
-    public override IEnumerator Execute(BossController boss, Transform player)
+    public override IEnumerator Execute(Boss boss, Transform player, BossStats stats)
     {
         Vector2 spawnPos = GetSafePosition(boss.transform.position);
 
@@ -35,7 +34,7 @@ public class SafeZoneAttack : BossAttack
         if (dist > safeZoneRadius)
         {
             Player p = player.GetComponent<Player>();
-            if (p != null) p.TakeDamage((int)damage);
+            if (p != null) p.TakeDamage(stats.GetDamage());
         }
 
         yield return new WaitForSeconds(displayDuration);

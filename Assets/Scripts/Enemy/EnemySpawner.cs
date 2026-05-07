@@ -106,7 +106,7 @@ public class EnemySpawner : MonoBehaviour
 
         Vector3 spawnPos = player.position + Vector3.up * 3f;
         GameObject bossObject = Instantiate(bossPrefab, spawnPos, Quaternion.identity);
-        BossController boss = bossObject.GetComponent<BossController>();
+        Boss boss = bossObject.GetComponent<Boss>();
         boss.Initialize(this, player, virtualCamera);
     }
 

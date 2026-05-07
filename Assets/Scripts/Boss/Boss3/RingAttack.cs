@@ -10,14 +10,13 @@ public class RingAttack : BossAttack
     public float warningRadius = 1f;
     public float maxRadius = 15f;
     public float expandSpeed = 3f;
-    public float damage = 20f;
     public float lineWidth = 0.2f;
     public int segments = 64;
     public Color warningColor = new Color(1f, 0.4f, 0f, 0.5f);
     public Color fireColor = new Color(1f, 0.1f, 0f, 1f);
     public float warningDuration = 1f;
 
-    public override IEnumerator Execute(BossController boss, Transform player)
+    public override IEnumerator Execute(Boss boss, Transform player, BossStats stats)
     {
         GameObject ring = Instantiate(ringPrefab, boss.transform.position, Quaternion.identity);
         LineRenderer lr = ring.GetComponent<LineRenderer>();
@@ -39,7 +38,7 @@ public class RingAttack : BossAttack
         lr.startColor = fireColor;
         lr.endColor = fireColor;
         ringDamage.enabled = true;
-        ringDamage.damage = damage;
+        ringDamage.damage = stats.GetDamage();
 
         float currentRadius = warningRadius;
 

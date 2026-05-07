@@ -8,14 +8,13 @@ public class SpinBeamAttack : BossAttack
 
     [Header("Beam")]
     public float beamDistance = 30f;
-    public float beamDamage = 30f;
     public float warningDuration = 1f;
     public float rotationSpeed = 90f;
     public float spinDuration = 3f;
     public Color beamWarningColor = new Color(1f, 0.4f, 0f, 0.5f);
     public Color beamFireColor = new Color(1f, 0.1f, 0f, 1f);
 
-    public override IEnumerator Execute(BossController boss, Transform player)
+    public override IEnumerator Execute(Boss boss, Transform player, BossStats stats)
     {
         float startAngle = Random.Range(0f, 360f);
         float direction = Random.value > 0.5f ? 1f : -1f;
@@ -57,7 +56,7 @@ public class SpinBeamAttack : BossAttack
                 if (hit.collider.CompareTag("Player"))
                 {
                     Player p = hit.collider.GetComponent<Player>();
-                    if (p != null) p.TakeDamage((int)beamDamage);
+                    if (p != null) p.TakeDamage(stats.GetDamage());
                     break;
                 }
             }

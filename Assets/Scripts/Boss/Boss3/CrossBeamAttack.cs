@@ -1,9 +1,8 @@
 using System.Collections;
 using UnityEngine;
 
-public class XBeamAttack : BossAttack
+public class CrossBeamAttack : BossAttack
 {
-    public float beamDamage = 50f;
     public float beamDistance = 30f;
     public float beamDisplayDuration = 0.3f;
     public Color beamWarningColor = new Color(1f, 0.4f, 0f, 0.5f);
@@ -12,10 +11,7 @@ public class XBeamAttack : BossAttack
     private LineRenderer[] _lineRenderers;
 
     private readonly Vector2[] _directions = {
-        new Vector2(1, 1).normalized,
-        new Vector2(1, -1).normalized,
-        new Vector2(-1, 1).normalized,
-        new Vector2(-1, -1).normalized
+        Vector2.up, Vector2.down, Vector2.left, Vector2.right
     };
 
     private void Awake()
@@ -23,9 +19,10 @@ public class XBeamAttack : BossAttack
         _lineRenderers = GetComponentsInChildren<LineRenderer>();
         foreach (var lr in _lineRenderers)
             lr.enabled = false;
+        Debug.Log("Line renderers found: " + _lineRenderers.Length);
     }
 
-    public override IEnumerator Execute(BossController boss, Transform player)
+    public override IEnumerator Execute(Boss boss, Transform player, BossStats stats)
     {
         for (int i = 0; i < 4; i++)
         {
@@ -48,11 +45,11 @@ public class XBeamAttack : BossAttack
             _lineRenderers[i].startColor = beamFireColor;
             _lineRenderers[i].endColor = beamFireColor;
 
-            RaycastHit2D hit = Physics2D.Raycast(boss.transform.position, _directions[i], beamDistance, ~LayerMask.GetMask("Boss"));
+            RaycastHit2D hit = Physics2D.Raycast(boss.transform.position, _directions[i], beamDistance,~LayerMask.GetMask("Boss"));
             if (hit.collider != null && hit.collider.CompareTag("Player"))
             {
                 Player p = hit.collider.GetComponent<Player>();
-                if (p != null) p.TakeDamage((int)beamDamage);
+                if (p != null) p.TakeDamage(stats.GetDamage());
             }
         }
 
