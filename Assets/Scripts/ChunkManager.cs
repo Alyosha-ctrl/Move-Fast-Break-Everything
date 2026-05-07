@@ -16,6 +16,7 @@ public class ChunkManager : MonoBehaviour
     [SerializeField] private GameObject floorHazardPrefab;
     [SerializeField] private GameObject floorEarthPrefab;
     [SerializeField] private GameObject floorTechPrefab;
+    [SerializeField] private GameObject ledgePrefab;
     [SerializeField] private ObjectSpawner objectSpawner;
     [SerializeField] private float chunkSize = 20f;
     [SerializeField] private float cellSize = 1f;
@@ -152,6 +153,7 @@ public class ChunkManager : MonoBehaviour
         terrainChunkObject.transform.position = chunkCenter;
         
         loadedTerrainChunks.Add(chunkCoordinate, terrainChunkObject);
+        CreateChunkLedge(terrainChunkObject.transform, chunkCenter);
         CreateChunkCells(terrainChunkObject.transform, chunkCenter);
     }
 
@@ -213,10 +215,22 @@ public class ChunkManager : MonoBehaviour
                 
                 TerrainType terrainType = GetTerrainType(cellPosition);
                 GameObject floorPrefab = GetFloorPrefab(terrainType);
-
-                Instantiate(floorPrefab, cellPosition, Quaternion.identity, chunkParent);
+                Vector3 visualPosition = cellPosition + floorPrefab.transform.localPosition;
+                
+                Instantiate(floorPrefab, visualPosition, Quaternion.identity, chunkParent);
             }
         }
+    }
+    
+    private void CreateChunkLedge(Transform chunkParent, Vector3 chunkCenter)
+    {
+        SpawnChunkLedge(chunkParent, chunkCenter, ledgePrefab);
+    }
+    
+    private void SpawnChunkLedge(Transform chunkParent, Vector3 chunkCenter, GameObject prefab)
+    {
+        Vector3 visualPosition = chunkCenter + prefab.transform.localPosition;
+        Instantiate(prefab, visualPosition, Quaternion.identity, chunkParent);
     }
 
     private float EvaluateNoise(Vector2 worldPosition, Vector2 offset, float scale)

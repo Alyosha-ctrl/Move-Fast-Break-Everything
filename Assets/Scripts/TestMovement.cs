@@ -38,6 +38,7 @@ public class TestMovement : MonoBehaviour
     [Header("Audio")]
     [SerializeField] private SoundDefinition slideSound;
     [SerializeField] private SoundDefinition dashSound;
+    [SerializeField] private SoundDefinition chargeSound;
 
     private bool IsSliding => HasMovementState(MovementStateMachine.State.slide);
     private bool IsSlideDecaying => HasMovementState(MovementStateMachine.State.slideDecay);
@@ -133,6 +134,7 @@ public class TestMovement : MonoBehaviour
         }
 
         movementStateMachine.AddState(chargeMovementSO);
+        SoundManager.Play(chargeSound);
     }
     //__________________________________________________________________________________________________
     void FixedUpdate()
