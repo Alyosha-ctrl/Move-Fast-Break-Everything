@@ -28,17 +28,17 @@ public class PlayerLevelUp : MonoBehaviour
         Debug.Log($"Starting at level {CurrentLevel} with {CurrentXp} XP. Next level at {XpLevelTarget} XP.");
     }
 
-    private void Update()
-    {
-        // TODO: Remove this debug code
-        if (!Input.GetKeyDown(KeyCode.X))
-        {
-            return;
-        }
+    // private void Update()
+    // {
+    //     // TODO: Remove this debug code
+    //     // if (!Input.GetKeyDown(KeyCode.X))
+    //     // {
+    //     //     return;
+    //     // }
 
-        AddXp(debugXpAmount);
-        Debug.Log($"Debug XP added: {debugXpAmount}. Level {CurrentLevel}, XP {CurrentXp}/{XpLevelTarget}", this);
-    }
+    //     // AddXp(debugXpAmount);
+    //     // Debug.Log($"Debug XP added: {debugXpAmount}. Level {CurrentLevel}, XP {CurrentXp}/{XpLevelTarget}", this);
+    // }
 
     public void AddXp(float xpAmount)
     {
