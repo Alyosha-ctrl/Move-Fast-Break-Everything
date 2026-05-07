@@ -68,6 +68,7 @@ public class BossController : MonoBehaviour
         {
             return;
         }
+        DamagePopUp.Create(transform.position, (int)amount);
 
         _health -= amount;
         _health = Mathf.Max(_health, 0f);

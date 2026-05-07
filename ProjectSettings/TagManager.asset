@@ -20,7 +20,7 @@ TagManager:
   - Enemy
   - PlayerCollider
   - EnemyCollider
-  - 
+  - Top
   - 
   - 
   - 
@@ -60,6 +60,9 @@ TagManager:
     locked: 0
   - name: WorldUI
     uniqueID: 412345676
+    locked: 0
+  - name: Top
+    uniqueID: 1360490827
     locked: 0
   m_RenderingLayers:
   - Default

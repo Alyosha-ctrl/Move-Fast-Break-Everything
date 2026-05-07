@@ -49,7 +49,7 @@ public class Enemy : MonoBehaviour
         {
             finalDamage = stats.CalculateDamageTaken(damageTaken, pierce);
         }
-
+        DamagePopUp.Create(transform.position, finalDamage);
         currentHealth -= finalDamage;
         currentHealth = Mathf.Max(currentHealth, 0);
         SoundManager.Play(hurtSound);
