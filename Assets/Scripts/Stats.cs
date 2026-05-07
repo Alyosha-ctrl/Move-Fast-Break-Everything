@@ -246,8 +246,6 @@ public class Stats : MonoBehaviour
                 Debug.Log($"Agility selected. Ranged Damage Multiplier: {rangedDamageMultiplier}", this);
                 Debug.Log($"Agility selected. Speed Multiplier: {speedMultiplier}", this);
                 Debug.Log($"Agility selected. Ranged Damage Multiplier: {rangedDamageMultiplier}", this);
-                IncreaseRangedDamage(rangeDamageIncrease);
-                IncreaseSpeed(speedMultiplier);
                 Debug.Log($"Intelligence selected. Ranged Damage Multiplier: {rangedDamageMultiplier}", this);
                 break;
             case "defense":
