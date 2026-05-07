@@ -219,6 +219,7 @@ GameObject:
   - component: {fileID: 3079197020917676478}
   - component: {fileID: 5260938390754987574}
   - component: {fileID: 5254759662387234936}
+  - component: {fileID: 6957726699728694981}
   m_Layer: 7
   m_Name: Boss1
   m_TagString: Enemy
@@ -298,7 +299,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 828734751130983521, guid: 3517c61cdcdd0a24d917584c7a388f1a, type: 3}
+  m_Sprite: {fileID: -4893084494559845310, guid: 7024f62e05b5d284d92d325cc453156b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -626,6 +627,28 @@ MonoBehaviour:
   warningColor: {r: 1, g: 0.4, b: 0, a: 0.5}
   fireColor: {r: 1, g: 0.1, b: 0, a: 1}
   warningDuration: 1
+--- !u!95 &6957726699728694981
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1874990315484048395}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4215335d0cda1234bb69bfa731a4292e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2704748683221773455
 GameObject:
   m_ObjectHideFlags: 0

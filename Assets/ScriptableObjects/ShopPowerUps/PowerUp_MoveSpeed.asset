@@ -15,7 +15,7 @@ MonoBehaviour:
   powerUpId: move_speed
   displayName: Move Speed
   description: Increases movement speed by 4% per rank.
-  icon: {fileID: -6869751320748356421, guid: 2bf9f2ede805f4c4289b9dc2840ce377, type: 3}
+  icon: {fileID: -1863859237976802683, guid: 56dc25028be074e46ab47e6e916f54ee, type: 3}
   baseCost: 200
   costIncreasePerRank: 150
   maxRank: 3

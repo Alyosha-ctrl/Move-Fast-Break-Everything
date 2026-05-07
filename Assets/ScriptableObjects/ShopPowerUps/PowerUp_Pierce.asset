@@ -15,7 +15,7 @@ MonoBehaviour:
   powerUpId: pierce
   displayName: Pierce
   description: Increases projectile pierce chance by 5% per rank.
-  icon: {fileID: 0}
+  icon: {fileID: 2130535880278150251, guid: 56dc25028be074e46ab47e6e916f54ee, type: 3}
   baseCost: 250
   costIncreasePerRank: 175
   maxRank: 3

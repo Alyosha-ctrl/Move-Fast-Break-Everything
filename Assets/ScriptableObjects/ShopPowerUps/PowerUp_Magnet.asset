@@ -15,7 +15,7 @@ MonoBehaviour:
   powerUpId: magnet
   displayName: Magnet
   description: Increases pickup attraction range by 25% per rank.
-  icon: {fileID: 4877825377717948546, guid: 4bbb6225890b51e45b40107f4bb47e67, type: 3}
+  icon: {fileID: 1535325516486818496, guid: 5e372ab8ded5fae43ace5978ec7d5591, type: 3}
   baseCost: 150
   costIncreasePerRank: 90
   maxRank: 4

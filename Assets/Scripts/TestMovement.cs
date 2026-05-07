@@ -101,7 +101,7 @@ public class TestMovement : MonoBehaviour
             MoveFail();
         }
 
-        if (IsDashing || IsDashDecaying || IsInSlideDashState || grappleHook.IsDashBlocked)
+        if (IsDashing || IsDashDecaying || IsInSlideDashState)
         {
             MoveFail();
             return;
@@ -145,11 +145,6 @@ public class TestMovement : MonoBehaviour
         // rb.MovePosition(rb.position + (moveInput * moveSpeed) * Time.fixedDeltaTime);
         endPos += moveInput * (currentMoveSpeed * Time.fixedDeltaTime);
 
-        if (grappleHook.IsGrappleControlling)
-        {
-            rb.MovePosition(grappleHook.GetOrbitPosition());
-            return;
-        }
         if (isDashing)
         {
             // rb.MovePosition(rb.position + facing * dashSpeed * Time.fixedDeltaTime);
@@ -177,12 +172,8 @@ public class TestMovement : MonoBehaviour
         {
             endPos += ChargeDecay();
         }
-        if (IsGrappleWhipping)
-        {
-            endPos += grappleHook.GetWhipDiff();
-        }
-        // Check allows grapple hook to limit movement when grappled
-        endPos = grappleHook.ConstrainPosition(rb.position, endPos);
+        
+        
         // print(endPos);
         rb.MovePosition(endPos);
     }
@@ -289,7 +280,6 @@ public class TestMovement : MonoBehaviour
 
     // New stuff
     public MovementSO dashMovementSO;
-    public GrapplingHook grappleHook;
 
     private bool IsDashing => HasMovementState(MovementStateMachine.State.dash);
     private bool IsDashDecaying => HasMovementState(MovementStateMachine.State.dashDecay);
