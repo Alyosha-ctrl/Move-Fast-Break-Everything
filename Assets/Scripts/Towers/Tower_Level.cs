@@ -9,7 +9,11 @@ public class Tower_Level : Tower_Base
     [SerializeField] private float dexterityIncrease = 0.1f;
     [SerializeField] private float defenseIncrease = 0.5f;
 
-
+    private void Awake()
+    {
+        towerName = "Level Mod";
+        rewardText = "ALL STATS +10%";
+    }
     protected override void ApplyEffect(Stats stats)
     {
 
@@ -33,6 +37,5 @@ public class Tower_Level : Tower_Base
         }
 
         Debug.Log("All stats increased!");
-        Destroy(gameObject);
     }
 }
