@@ -18,15 +18,21 @@ public class CircleBullet : MonoBehaviour
 
         DestructibleObstacle obstacle = collision.GetComponentInParent<DestructibleObstacle>();
         Enemy enemy = collision.GetComponent<Enemy>();
+        BossController boss = collision.GetComponentInParent<BossController>();
 
         if (enemy != null)
         {
             enemy.TakeDamage(weaponSO.baseDamage,pierce);
             StartCoroutineCooldown();
         }
-        else if (obstacle != null)
+        if (obstacle != null)
         {
             obstacle.TakeDamage(weaponSO.baseDamage);
+            StartCoroutineCooldown();
+        }
+        if(boss != null)
+        {
+            boss.TakeDamage(weaponSO.baseDamage);
             StartCoroutineCooldown();
         }
         

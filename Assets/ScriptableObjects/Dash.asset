@@ -25,5 +25,5 @@ MonoBehaviour:
   luckScale: 0
   hasDecay: 1
   decayState: 1
-  baseDecayTimeLength: 1
+  baseDecayTimeLength: 0
   decayTimeLength: 1

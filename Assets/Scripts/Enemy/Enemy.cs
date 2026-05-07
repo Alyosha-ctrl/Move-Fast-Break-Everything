@@ -31,6 +31,14 @@ public class Enemy : MonoBehaviour
             currentHealth = 10;
         }
     }
+    public void Heal(int healAmount)
+    {
+        currentHealth += healAmount;
+        if (stats != null)
+        {
+            currentHealth = Mathf.Min(currentHealth, stats.GetMaxHealth());
+        }
+    }
     private void Awake()
     {
         stats = GetComponent<EnemyStats>();
@@ -49,7 +57,7 @@ public class Enemy : MonoBehaviour
         {
             finalDamage = stats.CalculateDamageTaken(damageTaken, pierce);
         }
-
+        DamagePopUp.Create(transform.position, finalDamage);
         currentHealth -= finalDamage;
         currentHealth = Mathf.Max(currentHealth, 0);
         SoundManager.Play(hurtSound);
