@@ -219,6 +219,7 @@ GameObject:
   - component: {fileID: 3079197020917676478}
   - component: {fileID: 5260938390754987574}
   - component: {fileID: 5254759662387234936}
+  - component: {fileID: 1660735085725269885}
   m_Layer: 7
   m_Name: Boss2
   m_TagString: Enemy
@@ -298,8 +299,8 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0, g: 1, b: 0.037112355, a: 1}
+  m_Sprite: {fileID: 3898080663939571237, guid: 999e74820a9ec7745977b11140fd02de, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -342,7 +343,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1874990315484048395}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -369,17 +370,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.6196556, y: 0.0519228}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 3.2, y: 1.9}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2.0533466, y: 1.8434124}
   m_EdgeRadius: 0
 --- !u!120 &-5213337524663308346
 LineRenderer:
@@ -526,7 +527,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91ac4422bc319f5468b98410cf6cdbe7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BeamAttack
-  beamDamage: 50
+  beamDamage: 75
   beamDistance: 30
   beamDisplayDuration: 0.3
   beamWarningColor: {r: 1, g: 0.4, b: 0, a: 0.5}
@@ -543,7 +544,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e466e6f9d5919b648b32975d067943fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CrossBeamAttack
-  beamDamage: 50
+  beamDamage: 75
   beamDistance: 30
   beamDisplayDuration: 0.3
   beamWarningColor: {r: 1, g: 0.4, b: 0, a: 0.5}
@@ -560,7 +561,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4258082b75e35e946baecb85992eec59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::XBeamAttack
-  beamDamage: 50
+  beamDamage: 75
   beamDistance: 30
   beamDisplayDuration: 0.3
   beamWarningColor: {r: 1, g: 0.4, b: 0, a: 0.5}
@@ -601,7 +602,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpinBeamAttack
   lineRenderer: {fileID: 2939566779672921023}
   beamDistance: 30
-  beamDamage: 30
+  beamDamage: 45
   warningDuration: 1
   rotationSpeed: 90
   spinDuration: 3
@@ -623,12 +624,69 @@ MonoBehaviour:
   warningRadius: 1
   maxRadius: 15
   expandSpeed: 5
-  damage: 20
+  damage: 30
   lineWidth: 0.2
   segments: 64
   warningColor: {r: 1, g: 0.4, b: 0, a: 0.5}
   fireColor: {r: 1, g: 0.1, b: 0, a: 1}
   warningDuration: 1
+--- !u!60 &1660735085725269885
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1874990315484048395}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.2, y: 1.9}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.5565731, y: 0.56006527}
+      - {x: -0.057393074, y: 0.99024886}
+      - {x: -0.5866474, y: 0.45088482}
+      - {x: -0.928075, y: 0.43347663}
+      - {x: -1.291428, y: -0.22440986}
+      - {x: -1.6939136, y: -0.903043}
+      - {x: 1.5865834, y: -0.9097511}
+      - {x: 1.49267, y: -0.5237887}
+      - {x: 0.90225345, y: 0.032744408}
+      - {x: 0.9268324, y: 0.48838425}
+  m_UseDelaunayMesh: 1
 --- !u!1 &2704748683221773455
 GameObject:
   m_ObjectHideFlags: 0
