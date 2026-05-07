@@ -4,6 +4,12 @@ using UnityEngine;
 public abstract class Tower_Base : MonoBehaviour
 {
     private static Tower_Base currentInteractable;
+    private const float MinTowerCardWidth = 2f;
+    private const float MaxTowerCardWidth = 3.2f;
+    private const float MinTowerCardHeight = 0.5f;
+    private const float TowerCardHorizontalPadding = 0.35f;
+    private const float TowerCardVerticalPadding = 0.14f;
+
     [Header("Tower UI")]
     [SerializeField] private TextMeshProUGUI towerText;
 
@@ -14,11 +20,45 @@ public abstract class Tower_Base : MonoBehaviour
     protected bool playerInRange = false;
     protected Stats currentStats;
     private bool used = false;
+    private RectTransform _towerTextRect;
+    private RectTransform _towerBackgroundRect;
+
     private void Start()
     {
         if (towerText != null)
         {
-            towerText.text = towerName;
+            ConfigureTowerText();
+            SetTowerText(towerName);
+        }
+    }
+
+    private void ConfigureTowerText()
+    {
+        _towerTextRect = towerText.rectTransform;
+        _towerBackgroundRect = towerText.transform.parent as RectTransform;
+
+        towerText.textWrappingMode = TextWrappingModes.Normal;
+        towerText.alignment = TextAlignmentOptions.Center;
+    }
+
+    private void SetTowerText(string text)
+    {
+        towerText.text = text;
+
+        var preferredSize = towerText.GetPreferredValues(text, MaxTowerCardWidth - TowerCardHorizontalPadding, 0f);
+        var cardWidth = Mathf.Clamp(preferredSize.x + TowerCardHorizontalPadding, MinTowerCardWidth, MaxTowerCardWidth);
+        var cardHeight = Mathf.Max(preferredSize.y + TowerCardVerticalPadding, MinTowerCardHeight);
+        var cardSize = new Vector2(cardWidth, cardHeight);
+        var textSize = new Vector2(cardWidth - TowerCardHorizontalPadding, cardHeight - TowerCardVerticalPadding);
+
+        if (_towerTextRect != null)
+        {
+            _towerTextRect.sizeDelta = textSize;
+        }
+
+        if (_towerBackgroundRect != null)
+        {
+            _towerBackgroundRect.sizeDelta = cardSize;
         }
     }
 
@@ -52,7 +92,7 @@ public abstract class Tower_Base : MonoBehaviour
 
         if (towerText != null)
         {
-            towerText.text = rewardText;
+            SetTowerText(rewardText);
         }
 
         Destroy(gameObject, 1.5f);
