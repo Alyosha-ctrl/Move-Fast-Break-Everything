@@ -15,7 +15,7 @@ MonoBehaviour:
   powerUpId: thorns
   displayName: Retaliation
   description: Returns 5% more damage to attackers per rank.
-  icon: {fileID: 0}
+  icon: {fileID: -2304280968225048444, guid: 053f4266ee902c8408796d36b47e23dc, type: 3}
   baseCost: 125
   costIncreasePerRank: 90
   maxRank: 5
