@@ -1,9 +1,6 @@
 using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Tilemaps;
-using System.Runtime.CompilerServices;
-using UnityEditor.Animations;
 
 public class Player : MonoBehaviour
 {
