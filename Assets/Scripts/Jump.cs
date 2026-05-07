@@ -37,6 +37,9 @@ public class Jump : MonoBehaviour
 
     public bool IsJumping => isJumping;
 
+    public ParticleSystem jumpParticle;
+    public ParticleSystem failureParticle;
+
     private void Awake()
     {
         spriteBasePosition = spriteTransform.localPosition;
@@ -61,6 +64,7 @@ public class Jump : MonoBehaviour
     {
         if (isJumping)
         {
+            failureParticle.Play();
             return;
         }
 
@@ -69,6 +73,7 @@ public class Jump : MonoBehaviour
 
     private void StartJump()
     {
+        jumpParticle.Play();
         isJumping = true;
         jumpTimer = 0f;
         SetLayer(airborneLayer);

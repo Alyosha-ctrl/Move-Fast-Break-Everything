@@ -97,6 +97,11 @@ public class AutoAim : MonoBehaviour
 
         foreach (Enemy enemy in FindObjectsByType<Enemy>())
         {
+            if (!enemy.CanBeShot)
+            {
+                continue;
+            }
+
             float distance = Vector2.Distance(transform.position, enemy.transform.position);
 
             if (distance < minDistance)
@@ -114,6 +119,17 @@ public class AutoAim : MonoBehaviour
             {
                 minDistance = distance;
                 closest = obstacle.gameObject;
+            }
+        }
+
+        foreach (BossController enemy in FindObjectsByType<BossController>())
+        {
+            float distance = Vector2.Distance(transform.position, enemy.transform.position);
+
+            if (distance < minDistance)
+            {
+                minDistance = distance;
+                closest = enemy.gameObject;
             }
         }
 

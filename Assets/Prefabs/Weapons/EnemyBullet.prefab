@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 4007799153845805741}
   - component: {fileID: 5636091246019794619}
   - component: {fileID: 3716249910023456789}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EnemyBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -203,6 +203,7 @@ MonoBehaviour:
   lifetime: 3
   damage: 1
   weaponSO: {fileID: 11400000, guid: bb479f169d2f82c4f807423405bedf60, type: 2}
+  launchSound: {fileID: 0}
 --- !u!61 &4007799153845805741
 BoxCollider2D:
   m_ObjectHideFlags: 0
