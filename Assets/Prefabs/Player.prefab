@@ -14678,7 +14678,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3863297185283406450}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 52161401f8e2ef941bef1515065a9e05, type: 2}
   m_CullingMode: 0
@@ -24761,8 +24761,8 @@ MonoBehaviour:
   chargeDecayParticle: {fileID: 6323420338573624585}
   slideSound: {fileID: 11400000, guid: 30343b2c3eced0347b0646cd5b0dfd9b, type: 2}
   dashSound: {fileID: 11400000, guid: 267ac273a1ffb164199994d3e7afa04f, type: 2}
-  dashMovementSO: {fileID: 0}
   chargeSound: {fileID: 11400000, guid: 833b58b7a9849f546a04aa4c1ac0a034, type: 2}
+  dashMovementSO: {fileID: 0}
 --- !u!114 &1269611933969825367
 MonoBehaviour:
   m_ObjectHideFlags: 0
