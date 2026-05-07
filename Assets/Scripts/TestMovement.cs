@@ -100,7 +100,7 @@ public class TestMovement : MonoBehaviour
             MoveFail();
         }
 
-        if (isDashing || dashCooldownTimer > 0f || IsInSlideDashState)
+        if (IsDashing || IsDashDecaying || IsInSlideDashState || grappleHook.IsDashBlocked)
         {
             MoveFail();
             return;
@@ -142,6 +142,12 @@ public class TestMovement : MonoBehaviour
         endPos += rb.position;
         // rb.MovePosition(rb.position + (moveInput * moveSpeed) * Time.fixedDeltaTime);
         endPos += moveInput * (currentMoveSpeed * Time.fixedDeltaTime);
+
+        if (grappleHook.IsGrappleControlling)
+        {
+            rb.MovePosition(grappleHook.GetOrbitPosition());
+            return;
+        }
         if (isDashing)
         {
             // rb.MovePosition(rb.position + facing * dashSpeed * Time.fixedDeltaTime);
@@ -169,6 +175,12 @@ public class TestMovement : MonoBehaviour
         {
             endPos += ChargeDecay();
         }
+        if (IsGrappleWhipping)
+        {
+            endPos += grappleHook.GetWhipDiff();
+        }
+        // Check allows grapple hook to limit movement when grappled
+        endPos = grappleHook.ConstrainPosition(rb.position, endPos);
         // print(endPos);
         rb.MovePosition(endPos);
     }
@@ -247,7 +259,8 @@ public class TestMovement : MonoBehaviour
         return facing.normalized * (slideDashMovementSO.movePower * (slideDashMovementSO.agilityScale) * Time.fixedDeltaTime);
     }
 
-    private void MoveFail()
+    // Public now so we can see when abilities fail outside class
+    public void MoveFail()
     {
         //Add a bad sound in here
         failureParticle.Play();
@@ -271,4 +284,15 @@ public class TestMovement : MonoBehaviour
             }
         }
     }
+
+    // New stuff
+    public MovementSO dashMovementSO;
+    public GrapplingHook grappleHook;
+
+    private bool IsDashing => HasMovementState(MovementStateMachine.State.dash);
+    private bool IsDashDecaying => HasMovementState(MovementStateMachine.State.dashDecay);
+    private bool IsGrappleWhipping => HasMovementState(MovementStateMachine.State.grappleWhipping);
+
+    public Vector2 GetFacing() => facing;
+    public Vector2 GetMoveInput() => moveInput;
 }
