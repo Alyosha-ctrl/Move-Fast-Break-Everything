@@ -664,8 +664,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossStats
   baseSpeed: 1
-  baseDamage: 1
-  baseHealth: 100
+  baseDamage: 150
+  baseHealth: 4500
   baseDefense: 0.1
 --- !u!1 &2704748683221773455
 GameObject:

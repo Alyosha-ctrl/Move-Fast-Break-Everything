@@ -512,6 +512,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   slowStartDuration: 3
   hurtSound: {fileID: 11400000, guid: 6c72d3846ee21984c946066a593363e9, type: 2}
+  xpOrbPrefab: {fileID: 0}
+  numXpOrbDrops: 2
+  minXpOrbSpacing: 0.15
+  xpDropRadius: 1
   healthBar: {fileID: 1829930342014113047}
   phaseOneAttacks:
   - {fileID: 7211597449029581537}
@@ -791,8 +795,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9765cad2a1c84f041a883afde81b4174, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossStats
-  baseSpeed: 1
-  baseDamage: 1
+  baseSpeed: 100
+  baseDamage: 3000
   baseHealth: 100
   baseDefense: 0.1
 --- !u!1 &2704748683221773455

@@ -696,7 +696,7 @@ MonoBehaviour:
   - startTimeSeconds: 940
     maxEnemies: 0
     spawnInterval: 1
-  boss1Prefab: {fileID: 1874990315484048395, guid: 3cae73fc11ab4794f9bfd6103a24379d, type: 3}
+  boss1Prefab: {fileID: 1874990315484048395, guid: e1999b6e19d52fa4fb0d1215cecdecde, type: 3}
   boss2Prefab: {fileID: 1874990315484048395, guid: 3cae73fc11ab4794f9bfd6103a24379d, type: 3}
   boss3Prefab: {fileID: 1874990315484048395, guid: 058344c965d47b24ca174b860d2c36d0, type: 3}
   virtualCamera: {fileID: 1269148360}
@@ -1089,8 +1089,8 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
-  orthographic size: 1.51
+  orthographic: 1
+  orthographic size: 5
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
