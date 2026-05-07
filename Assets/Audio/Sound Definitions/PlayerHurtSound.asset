@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34d4617e45eda8a4db9496c291253229, type: 3}
   m_Name: PlayerHurtSound
   m_EditorClassIdentifier: Assembly-CSharp::SoundDefinition
-  clip: {fileID: 8300000, guid: cb6800566b40e2449bc4b5a23d5deae7, type: 3}
+  clip: {fileID: 8300000, guid: 21ce716ebe6742d46b9a9a3838069754, type: 3}
   category: 0
-  baseVolume: 0.5
+  baseVolume: 0.1
   maxSimultaneousVoices: 5
   minReplayDelay: 0
