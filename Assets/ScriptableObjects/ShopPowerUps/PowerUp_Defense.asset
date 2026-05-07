@@ -15,7 +15,7 @@ MonoBehaviour:
   powerUpId: defense
   displayName: Guard
   description: Reduces incoming damage by increasing defense by 5% per rank.
-  icon: {fileID: 8426817888908902439, guid: d32a6f5c6648f064f9d085063a4be67b, type: 3}
+  icon: {fileID: 1202984965197363600, guid: 56dc25028be074e46ab47e6e916f54ee, type: 3}
   baseCost: 200
   costIncreasePerRank: 150
   maxRank: 4

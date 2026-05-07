@@ -15,7 +15,7 @@ MonoBehaviour:
   powerUpId: might
   displayName: Might
   description: Raises inflicted damage by 5% per rank.
-  icon: {fileID: -2151256579594707336, guid: 8053120292b4d1648bb32eb26639db5f, type: 3}
+  icon: {fileID: 7576617242518483205, guid: 56dc25028be074e46ab47e6e916f54ee, type: 3}
   baseCost: 200
   costIncreasePerRank: 120
   maxRank: 5

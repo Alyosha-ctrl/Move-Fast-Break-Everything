@@ -119,6 +119,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!212 &12410537 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 9000498106450745806, guid: 1c5a93d80cf55b44696cd2fb0b7d4049, type: 3}
+  m_PrefabInstance: {fileID: 1092388853012045804}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &146734370
 GameObject:
   m_ObjectHideFlags: 0
@@ -585,8 +590,8 @@ MonoBehaviour:
   floorEarthPrefab: {fileID: 4734800804745988880, guid: d40b59c064b87234fb8dd765c35a0efa, type: 3}
   floorTechPrefab: {fileID: 4734800804745988880, guid: 6519efa9cf4b9e340886699f3375ef7e, type: 3}
   objectSpawner: {fileID: 636936955}
-  chunkSize: 20
-  cellSize: 1
+  chunkSize: 15
+  cellSize: 1.5
   loadRadius: 1
   terrainUnloadRadius: 1
   objectUnloadRadius: 20
@@ -628,6 +633,7 @@ MonoBehaviour:
   - {fileID: 1874990315484048395, guid: 11d95817b12e84a4082ed1ed31c29769, type: 3}
   - {fileID: 1874990315484048395, guid: 11d95817b12e84a4082ed1ed31c29769, type: 3}
   - {fileID: 1874990315484048395, guid: 11d95817b12e84a4082ed1ed31c29769, type: 3}
+  - {fileID: 5913909482270217524, guid: 3fdd15fad027b3444ba89c02f75e4452, type: 3}
   player: {fileID: 1092388853012045805}
   spawnDistance: 18
   respawnDistance: 40
@@ -686,9 +692,16 @@ MonoBehaviour:
   - startTimeSeconds: 360
     maxEnemies: 25
     spawnInterval: 0.2
-  - startTimeSeconds: 275
+  - startTimeSeconds: 375
     maxEnemies: 0
     spawnInterval: 0.2
+  boss1Prefab: {fileID: 1874990315484048395, guid: 3cae73fc11ab4794f9bfd6103a24379d, type: 3}
+  boss2Prefab: {fileID: 1874990315484048395, guid: 3cae73fc11ab4794f9bfd6103a24379d, type: 3}
+  boss3Prefab: {fileID: 1874990315484048395, guid: 058344c965d47b24ca174b860d2c36d0, type: 3}
+  virtualCamera: {fileID: 1269148360}
+  boss1SpawnTime: 300
+  boss2SpawnTime: 600
+  boss3SpawnTime: 900
 --- !u!114 &636936955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -744,6 +757,11 @@ MonoBehaviour:
     spawnOnTech: 1
     spawnOnHazard: 0
     spawnOnDeath: 0
+--- !u!95 &786510493 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7021372815280161902, guid: 1c5a93d80cf55b44696cd2fb0b7d4049, type: 3}
+  m_PrefabInstance: {fileID: 1092388853012045804}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &787839363
 GameObject:
   m_ObjectHideFlags: 0
@@ -1150,6 +1168,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1385962952}
   m_CullTransparentMesh: 1
+--- !u!212 &1393172258 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 1619193257371782408, guid: 1c5a93d80cf55b44696cd2fb0b7d4049, type: 3}
+  m_PrefabInstance: {fileID: 1092388853012045804}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1672849089
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1453,6 +1476,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -6438699549702643509, guid: 1c5a93d80cf55b44696cd2fb0b7d4049, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 786510493}
+    - target: {fileID: -6438699549702643509, guid: 1c5a93d80cf55b44696cd2fb0b7d4049, type: 3}
       propertyPath: healthBarOffset.y
       value: -0.45
       objectReference: {fileID: 0}
@@ -1481,6 +1508,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1826873285969335579, guid: 1c5a93d80cf55b44696cd2fb0b7d4049, type: 3}
+      propertyPath: dashMovementSO
+      value: 
+      objectReference: {fileID: 11400000, guid: b48c7a16defacab46abda9e741d24947, type: 2}
+    - target: {fileID: 1826873285969335579, guid: 1c5a93d80cf55b44696cd2fb0b7d4049, type: 3}
       propertyPath: movementStateMachine
       value: 
       objectReference: {fileID: 1828502760}
@@ -1508,6 +1539,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3480304899369043550, guid: 1c5a93d80cf55b44696cd2fb0b7d4049, type: 3}
+      propertyPath: visual1
+      value: 
+      objectReference: {fileID: 12410537}
+    - target: {fileID: 3480304899369043550, guid: 1c5a93d80cf55b44696cd2fb0b7d4049, type: 3}
+      propertyPath: visual2
+      value: 
+      objectReference: {fileID: 1393172258}
     - target: {fileID: 4613269872209259729, guid: 1c5a93d80cf55b44696cd2fb0b7d4049, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -1583,6 +1622,10 @@ PrefabInstance:
     - target: {fileID: 7013742933698887600, guid: 1c5a93d80cf55b44696cd2fb0b7d4049, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7021372815280161902, guid: 1c5a93d80cf55b44696cd2fb0b7d4049, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9007521428449226668, guid: 1c5a93d80cf55b44696cd2fb0b7d4049, type: 3}
       propertyPath: m_Constraints

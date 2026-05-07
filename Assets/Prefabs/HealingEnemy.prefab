@@ -161,20 +161,32 @@ PrefabInstance:
       value: HealingEnemy
       objectReference: {fileID: 0}
     - target: {fileID: 2812614737782884155, guid: 0e93e345cfaea7441a616a542ef2341e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -6925441916918096001, guid: cd1cd1da67b3c10478f965222abc52a3, type: 3}
+    - target: {fileID: 2812614737782884155, guid: 0e93e345cfaea7441a616a542ef2341e, type: 3}
       propertyPath: m_Color.b
-      value: 0.11080456
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2812614737782884155, guid: 0e93e345cfaea7441a616a542ef2341e, type: 3}
       propertyPath: m_Color.g
-      value: 0.2830189
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2812614737782884155, guid: 0e93e345cfaea7441a616a542ef2341e, type: 3}
       propertyPath: m_Color.r
-      value: 0.1482881
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2812614737782884155, guid: 0e93e345cfaea7441a616a542ef2341e, type: 3}
       propertyPath: m_SortingOrder
       value: 700
+      objectReference: {fileID: 0}
+    - target: {fileID: 3804744086725544488, guid: 0e93e345cfaea7441a616a542ef2341e, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: ab177e876c8a4074f9209ef57f90e5a5, type: 2}
+    - target: {fileID: 7341118226688355220, guid: 0e93e345cfaea7441a616a542ef2341e, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.3
       objectReference: {fileID: 0}
     - target: {fileID: 8754503555645506187, guid: 0e93e345cfaea7441a616a542ef2341e, type: 3}
       propertyPath: m_LocalPosition.x
