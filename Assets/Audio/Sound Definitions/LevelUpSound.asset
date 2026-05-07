@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34d4617e45eda8a4db9496c291253229, type: 3}
   m_Name: LevelUpSound
   m_EditorClassIdentifier: Assembly-CSharp::SoundDefinition
-  clip: {fileID: 8300000, guid: c29daf0de4ce7b1499787623a702f137, type: 3}
+  clip: {fileID: 8300000, guid: 6ce625f1a93b7d74298831dfff1181f2, type: 3}
   category: 0
-  baseVolume: 0.2
+  baseVolume: 0.1
   maxSimultaneousVoices: 3
   minReplayDelay: 0

@@ -97,6 +97,11 @@ public class AutoAim : MonoBehaviour
 
         foreach (Enemy enemy in FindObjectsByType<Enemy>())
         {
+            if (!enemy.CanBeShot)
+            {
+                continue;
+            }
+
             float distance = Vector2.Distance(transform.position, enemy.transform.position);
 
             if (distance < minDistance)

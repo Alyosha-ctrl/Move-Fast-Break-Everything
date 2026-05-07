@@ -1,11 +1,35 @@
+using TMPro;
 using UnityEngine;
 
 public abstract class Tower_Base : MonoBehaviour
 {
     private static Tower_Base currentInteractable;
+    [Header("Tower UI")]
+    [SerializeField] private TextMeshProUGUI towerText;
+
+    [Header("Tower Info")]
+    [SerializeField] protected string towerName = "Tower";
+    [SerializeField] protected string rewardText = "+20% Stat";
 
     protected bool playerInRange = false;
     protected Stats currentStats;
+    private bool used = false;
+    private void Start()
+    {
+        if (towerText != null)
+        {
+            towerText.text = towerName;
+        }
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Tower_Base.TryInteractCurrent();
+        }
+    }
+
 
     public static void TryInteractCurrent()
     {
@@ -17,12 +41,21 @@ public abstract class Tower_Base : MonoBehaviour
 
     private void TryInteract()
     {
-        if (!playerInRange || currentStats == null)
+        if (!playerInRange || currentStats == null || used)
         {
             return;
         }
 
         ApplyEffect(currentStats);
+
+        used = true;
+
+        if (towerText != null)
+        {
+            towerText.text = rewardText;
+        }
+
+        Destroy(gameObject, 1.5f);
     }
 
     protected abstract void ApplyEffect(Stats stats);

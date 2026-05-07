@@ -1,3 +1,5 @@
+@import url("ColorTokens.uss");
+
 .options-menu {
     position: absolute;
     left: 0;
@@ -6,7 +8,7 @@
     bottom: 0;
     align-items: center;
     justify-content: center;
-    background-color: rgba(4, 6, 10, 0.92);
+    background-color: var(--color-overlay-panel);
 }
 
 .options-menu__panel {
@@ -16,8 +18,8 @@
     max-height: 90%;
     padding: 18px;
     flex-direction: column;
-    background-color: rgb(73, 79, 112);
-    border-color: rgb(239, 191, 99);
+    background-color: var(--color-surface-panel);
+    border-color: var(--color-accent);
     border-width: 2px;
     border-radius: 4px;
 }
@@ -34,7 +36,7 @@
 }
 
 .options-menu__title {
-    color: rgb(255, 255, 255);
+    color: var(--color-text-primary);
     font-size: 36px;
     -unity-font-style: bold;
     -unity-text-align: middle-left;
@@ -43,13 +45,18 @@
 .options-menu__close-button {
     width: 150px;
     height: 58px;
-    color: rgb(255, 255, 255);
-    background-color: rgb(163, 38, 29);
-    border-color: rgb(239, 191, 99);
+    color: var(--color-text-primary);
+    background-color: var(--color-button-danger);
+    border-color: var(--color-button-border);
     border-width: 2px;
     border-radius: 4px;
     font-size: 24px;
     -unity-font-style: bold;
+}
+
+.options-menu__close-button:hover {
+    background-color: var(--color-button-danger-hover);
+    border-color: var(--color-button-border-hover);
 }
 
 .options-menu__tabs {
@@ -62,19 +69,24 @@
     width: 150px;
     height: 52px;
     margin-right: 12px;
-    color: rgb(255, 255, 255);
-    background-color: rgb(139, 136, 66);
-    border-color: rgb(236, 181, 83);
+    color: var(--color-text-primary);
+    background-color: var(--color-button-base);
+    border-color: var(--color-button-border);
     border-width: 2px;
     border-radius: 3px;
     font-size: 18px;
     -unity-font-style: bold;
 }
 
+.options-menu__tab:hover {
+    background-color: var(--color-button-base-hover);
+    border-color: var(--color-button-border-hover);
+}
+
 .options-menu__tab--active {
-    color: rgb(255, 255, 255);
-    background-color: rgb(168, 158, 78);
-    border-color: rgb(255, 238, 145);
+    color: var(--color-text-primary);
+    background-color: var(--color-button-base-hover);
+    border-color: var(--color-button-border-hover);
 }
 
 .options-menu__content {
@@ -97,8 +109,8 @@
     min-height: 76px;
     margin-top: 10px;
     padding: 12px 14px;
-    background-color: rgb(139, 136, 66);
-    border-color: rgb(236, 181, 83);
+    background-color: var(--color-surface-card);
+    border-color: var(--color-accent);
     border-width: 2px;
     border-radius: 3px;
 }
@@ -109,7 +121,7 @@
 
 .options-menu__row-label {
     min-width: 120px;
-    color: rgb(255, 255, 255);
+    color: var(--color-text-primary);
     font-size: 22px;
     -unity-font-style: bold;
 }
@@ -135,8 +147,8 @@
     right: 0;
     top: 5px;
     height: 8px;
-    background-color: rgb(38, 16, 42);
-    border-color: rgb(237, 196, 101);
+    background-color: var(--color-surface-track);
+    border-color: var(--color-accent);
     border-width: 1px;
 }
 
@@ -145,7 +157,7 @@
     left: 0;
     top: 5px;
     height: 8px;
-    background-color: rgb(242, 212, 89);
+    background-color: var(--color-accent);
 }
 
 .options-slider__knob {
@@ -154,8 +166,8 @@
     width: 18px;
     height: 18px;
     margin-left: -9px;
-    background-color: rgb(255, 238, 145);
-    border-color: rgb(38, 16, 42);
+    background-color: var(--color-accent-bright);
+    border-color: var(--color-surface-track);
     border-width: 2px;
     border-radius: 2px;
 }
@@ -163,9 +175,9 @@
 .options-menu__binding-button {
     min-width: 120px;
     height: 40px;
-    color: rgb(255, 255, 255);
-    background-color: rgb(20, 29, 37);
-    border-color: rgb(237, 196, 101);
+    color: var(--color-text-primary);
+    background-color: var(--color-surface-frame);
+    border-color: var(--color-button-border);
     border-width: 2px;
     border-radius: 3px;
     font-size: 16px;
@@ -173,5 +185,6 @@
 }
 
 .options-menu__binding-button:hover {
-    background-color: rgb(35, 45, 56);
+    background-color: var(--color-surface-frame-hover);
+    border-color: var(--color-button-border-hover);
 }

@@ -10,6 +10,7 @@ public class PlayerPickupMagnet : MonoBehaviour
     [SerializeField, Min(0f)] private float radiusIncreasePerRank = 0.25f;
 
     public float PickupRadius => magnetCollider != null ? magnetCollider.radius : basePickupRadius;
+    public Transform MagnetTarget => magnetTarget;
 
     private void Start()
     {

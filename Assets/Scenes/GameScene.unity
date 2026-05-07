@@ -585,8 +585,8 @@ MonoBehaviour:
   floorEarthPrefab: {fileID: 4734800804745988880, guid: d40b59c064b87234fb8dd765c35a0efa, type: 3}
   floorTechPrefab: {fileID: 4734800804745988880, guid: 6519efa9cf4b9e340886699f3375ef7e, type: 3}
   objectSpawner: {fileID: 636936955}
-  chunkSize: 20
-  cellSize: 1
+  chunkSize: 15
+  cellSize: 1.5
   loadRadius: 1
   terrainUnloadRadius: 1
   objectUnloadRadius: 20
@@ -631,20 +631,38 @@ MonoBehaviour:
   respawnDistance: 40
   spawnPhases:
   - startTimeSeconds: 0
-    maxEnemies: 20
-    spawnInterval: 1
+    maxEnemies: 7
+    spawnInterval: 1.5
   - startTimeSeconds: 15
-    maxEnemies: 28
-    spawnInterval: 0.8
+    maxEnemies: 14
+    spawnInterval: 1.3
   - startTimeSeconds: 30
-    maxEnemies: 35
-    spawnInterval: 0.6
+    maxEnemies: 21
+    spawnInterval: 1.1
   - startTimeSeconds: 45
-    maxEnemies: 41
-    spawnInterval: 0.5
+    maxEnemies: 28
+    spawnInterval: 0.9
   - startTimeSeconds: 60
-    maxEnemies: 46
-    spawnInterval: 0.4
+    maxEnemies: 35
+    spawnInterval: 0.8
+  - startTimeSeconds: 90
+    maxEnemies: 42
+    spawnInterval: 0.7
+  - startTimeSeconds: 120
+    maxEnemies: 49
+    spawnInterval: 0.6
+  - startTimeSeconds: 150
+    maxEnemies: 56
+    spawnInterval: 0.5
+  - startTimeSeconds: 180
+    maxEnemies: 63
+    spawnInterval: 0.5
+  - startTimeSeconds: 240
+    maxEnemies: 70
+    spawnInterval: 0.5
+  - startTimeSeconds: 300
+    maxEnemies: 77
+    spawnInterval: 0.5
 --- !u!114 &636936955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -664,7 +682,8 @@ MonoBehaviour:
     - {fileID: 7777900955581189186, guid: 9550ea7b69289a64a89fa8930adcc4ff, type: 3}
     - {fileID: 4775551448602699699, guid: 26d97c43d0b9b2245a041fce69b6de4b, type: 3}
     - {fileID: 5539367028798991948, guid: 9e230f857f49d0041812c49ef7ef9bf2, type: 3}
-    objectCount: 5
+    - {fileID: 2311890830828110298, guid: d3174d73381de6f44a87ab2fad7e79a2, type: 3}
+    objectCount: 3
     spawnChance: 0.1
     playerSpawnPoint: {x: 0, y: 0}
     objectSpacing: 4
@@ -676,7 +695,7 @@ MonoBehaviour:
     spawnOnDeath: 0
   - prefabs:
     - {fileID: 5046122262590631306, guid: 4a220988e5aab5f4fb33d30eaac72dde, type: 3}
-    objectCount: 5
+    objectCount: 3
     spawnChance: 0.1
     playerSpawnPoint: {x: 0, y: 0}
     objectSpacing: 4
@@ -700,6 +719,18 @@ MonoBehaviour:
     spawnOnTech: 1
     spawnOnHazard: 0
     spawnOnDeath: 0
+  - prefabs:
+    - {fileID: 1961546337541591266, guid: b2b6b5a49c4aec04c9c2e17be85dfdf5, type: 3}
+    objectCount: 2
+    spawnChance: 1
+    playerSpawnPoint: {x: 0, y: 0}
+    objectSpacing: 4
+    playerSpacing: 5
+    maxPlacementAttempts: 25
+    spawnOnEarth: 0
+    spawnOnTech: 0
+    spawnOnHazard: 0
+    spawnOnDeath: 1
 --- !u!1 &787839363
 GameObject:
   m_ObjectHideFlags: 0
@@ -839,83 +870,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 787839363}
   m_CullTransparentMesh: 1
---- !u!1001 &874897105
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3083587648009333056, guid: 50c2bcf7e1007fd49a89077bc7f9e891, type: 3}
-      propertyPath: TreeCanvas
-      value: 
-      objectReference: {fileID: 435433823}
-    - target: {fileID: 4861496404516698642, guid: 50c2bcf7e1007fd49a89077bc7f9e891, type: 3}
-      propertyPath: m_SortingOrder
-      value: 149
-      objectReference: {fileID: 0}
-    - target: {fileID: 6860932909762194913, guid: 50c2bcf7e1007fd49a89077bc7f9e891, type: 3}
-      propertyPath: m_Name
-      value: TreeLore
-      objectReference: {fileID: 0}
-    - target: {fileID: 7254310988291782036, guid: 50c2bcf7e1007fd49a89077bc7f9e891, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 7254310988291782036, guid: 50c2bcf7e1007fd49a89077bc7f9e891, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 13.333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 7254310988291782036, guid: 50c2bcf7e1007fd49a89077bc7f9e891, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 3.3333335
-      objectReference: {fileID: 0}
-    - target: {fileID: 7254310988291782036, guid: 50c2bcf7e1007fd49a89077bc7f9e891, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -14.126034
-      objectReference: {fileID: 0}
-    - target: {fileID: 7254310988291782036, guid: 50c2bcf7e1007fd49a89077bc7f9e891, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 7.913764
-      objectReference: {fileID: 0}
-    - target: {fileID: 7254310988291782036, guid: 50c2bcf7e1007fd49a89077bc7f9e891, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7254310988291782036, guid: 50c2bcf7e1007fd49a89077bc7f9e891, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7254310988291782036, guid: 50c2bcf7e1007fd49a89077bc7f9e891, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7254310988291782036, guid: 50c2bcf7e1007fd49a89077bc7f9e891, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7254310988291782036, guid: 50c2bcf7e1007fd49a89077bc7f9e891, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7254310988291782036, guid: 50c2bcf7e1007fd49a89077bc7f9e891, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7254310988291782036, guid: 50c2bcf7e1007fd49a89077bc7f9e891, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7254310988291782036, guid: 50c2bcf7e1007fd49a89077bc7f9e891, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 50c2bcf7e1007fd49a89077bc7f9e891, type: 3}
 --- !u!1 &1269148358
 GameObject:
   m_ObjectHideFlags: 0
@@ -1587,6 +1541,5 @@ SceneRoots:
   - {fileID: 1828502757}
   - {fileID: 636936951}
   - {fileID: 1269148361}
-  - {fileID: 874897105}
   - {fileID: 489821603}
   - {fileID: 1854811244}
