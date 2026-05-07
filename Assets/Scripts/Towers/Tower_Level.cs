@@ -11,7 +11,7 @@ public class Tower_Level : Tower_Base
 
     private void Awake()
     {
-        towerName = "Level Mod";
+        towerName = "LEVEL Mod";
         rewardText = "ALL STATS +10%";
     }
     protected override void ApplyEffect(Stats stats)
