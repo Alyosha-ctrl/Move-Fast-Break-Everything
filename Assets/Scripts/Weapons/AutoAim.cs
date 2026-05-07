@@ -122,7 +122,7 @@ public class AutoAim : MonoBehaviour
             }
         }
 
-        foreach (BossController enemy in FindObjectsByType<BossController>())
+        foreach (Boss enemy in FindObjectsByType<Boss>())
         {
             float distance = Vector2.Distance(transform.position, enemy.transform.position);
 

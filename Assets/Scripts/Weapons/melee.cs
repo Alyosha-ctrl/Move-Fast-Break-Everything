@@ -79,10 +79,10 @@ public class Melee : MonoBehaviour
                 continue;
             }
 
-            BossController boss = target.GetComponentInParent<BossController>();
+            Boss boss = target.GetComponentInParent<Boss>();
             if (boss != null)
             {
-                boss.TakeDamage(damage);
+                boss.TakeDamage(damage,pierce);
                 Debug.Log("Boss Damage: " + damage);
                 continue;
             }

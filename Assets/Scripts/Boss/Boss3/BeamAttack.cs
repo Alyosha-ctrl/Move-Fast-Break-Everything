@@ -4,7 +4,6 @@ using UnityEngine;
 public class BeamAttack : BossAttack
 {
     [Header("Beam")]
-    public float beamDamage = 50f;
     public float beamDistance = 30f;
     public float beamDisplayDuration = 0.3f;
     public Color beamWarningColor = new Color(1f, 0.4f, 0f, 0.5f);
@@ -18,7 +17,7 @@ public class BeamAttack : BossAttack
         _lineRenderer.enabled = false;
     }
 
-    public override IEnumerator Execute(BossController boss, Transform player)
+    public override IEnumerator Execute(Boss boss, Transform player, BossStats stats)
     {
         Vector2 lockedDir = (player.position - boss.transform.position).normalized;
         Vector3 endPoint = boss.transform.position + (Vector3)(lockedDir * beamDistance);
@@ -31,7 +30,14 @@ public class BeamAttack : BossAttack
         _lineRenderer.SetPosition(1, endPoint);
         _lineRenderer.enabled = true;
 
-        yield return new WaitForSeconds(1f);
+        float elapsed = 0f;
+        while (elapsed < 1f)
+        {
+            _lineRenderer.SetPosition(0, transform.position);
+            _lineRenderer.SetPosition(1, transform.position + (Vector3)(lockedDir * beamDistance));
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
 
         _lineRenderer.startWidth = 0.6f;
         _lineRenderer.endWidth = 0.6f;
@@ -43,10 +49,18 @@ public class BeamAttack : BossAttack
         {
             Player player2 = hit.collider.GetComponent<Player>();
             if (player2 != null)
-                player2.TakeDamage((int)beamDamage);
+                player2.TakeDamage(stats.GetDamage());
         }
 
-        yield return new WaitForSeconds(beamDisplayDuration);
+        float displayElapsed = 0f;
+        while (displayElapsed < beamDisplayDuration)
+        {
+            _lineRenderer.SetPosition(0, transform.position);
+            _lineRenderer.SetPosition(1, transform.position + (Vector3)(lockedDir * beamDistance));
+            displayElapsed += Time.deltaTime;
+            yield return null;
+        }
+
         _lineRenderer.enabled = false;
     }
 }

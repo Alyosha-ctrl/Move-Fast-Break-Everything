@@ -220,6 +220,7 @@ GameObject:
   - component: {fileID: 5260938390754987574}
   - component: {fileID: 5254759662387234936}
   - component: {fileID: 4706210814209225791}
+  - component: {fileID: 4478601438519089151}
   m_Layer: 7
   m_Name: Boss3
   m_TagString: Enemy
@@ -504,10 +505,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9535a9d10c47ba240b3d2dd7c934acba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  maxHealth: 1500
-  contactDamage: 3
-  hurtSound: {fileID: 11400000, guid: 6c72d3846ee21984c946066a593363e9, type: 2}
   slowStartDuration: 3
+  hurtSound: {fileID: 11400000, guid: 6c72d3846ee21984c946066a593363e9, type: 2}
+  xpOrbPrefab: {fileID: 6034623416384411684, guid: ca6fe6d51e7593b4ba6f2eef87017da4, type: 3}
+  numXpOrbDrops: 20
+  minXpOrbSpacing: 0.15
+  xpDropRadius: 1
   healthBar: {fileID: 1829930342014113047}
   phaseOneAttacks:
   - {fileID: 5494783331620452175}
@@ -528,7 +531,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91ac4422bc319f5468b98410cf6cdbe7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BeamAttack
-  beamDamage: 100
   beamDistance: 30
   beamDisplayDuration: 0.3
   beamWarningColor: {r: 1, g: 0.4, b: 0, a: 0.5}
@@ -545,7 +547,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e466e6f9d5919b648b32975d067943fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CrossBeamAttack
-  beamDamage: 100
   beamDistance: 30
   beamDisplayDuration: 0.3
   beamWarningColor: {r: 1, g: 0.4, b: 0, a: 0.5}
@@ -583,7 +584,6 @@ MonoBehaviour:
   safeZoneMask: {fileID: 4820723717498252415}
   dangerOverlay: {fileID: 8594049234215508999}
   safeZoneRadius: 0.9
-  damage: 100
   warningDuration: 3
   displayDuration: 0.3
   minDistanceFromBoss: 3
@@ -603,7 +603,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpinBeamAttack
   lineRenderer: {fileID: 2939566779672921023}
   beamDistance: 30
-  beamDamage: 60
   warningDuration: 1
   rotationSpeed: 90
   spinDuration: 3
@@ -625,7 +624,6 @@ MonoBehaviour:
   warningRadius: 1
   maxRadius: 15
   expandSpeed: 5
-  damage: 40
   lineWidth: 0.2
   segments: 64
   warningColor: {r: 1, g: 0.4, b: 0, a: 0.5}
@@ -653,6 +651,22 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4478601438519089151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1874990315484048395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9765cad2a1c84f041a883afde81b4174, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BossStats
+  baseSpeed: 1
+  baseDamage: 1
+  baseHealth: 100
+  baseDefense: 0.1
 --- !u!1 &2704748683221773455
 GameObject:
   m_ObjectHideFlags: 0
@@ -1080,7 +1094,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 20, y: 10}
+  m_Size: {x: 25, y: 13}
   m_EdgeRadius: 0
 --- !u!1 &4054792838962783597
 GameObject:
