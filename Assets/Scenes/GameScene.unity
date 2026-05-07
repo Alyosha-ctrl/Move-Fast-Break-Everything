@@ -584,6 +584,7 @@ MonoBehaviour:
   floorHazardPrefab: {fileID: 4734800804745988880, guid: e7d644cfa29e81b47bfb141d0235e5df, type: 3}
   floorEarthPrefab: {fileID: 4734800804745988880, guid: d40b59c064b87234fb8dd765c35a0efa, type: 3}
   floorTechPrefab: {fileID: 4734800804745988880, guid: 6519efa9cf4b9e340886699f3375ef7e, type: 3}
+  ledgePrefab: {fileID: 4734800804745988880, guid: 7bb9a0a93e2f18041b3016a24e4081b3, type: 3}
   objectSpawner: {fileID: 636936955}
   chunkSize: 15
   cellSize: 1.5
