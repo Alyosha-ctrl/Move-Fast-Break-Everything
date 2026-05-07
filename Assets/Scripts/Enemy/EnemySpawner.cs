@@ -95,20 +95,38 @@ public class EnemySpawner : MonoBehaviour
     // Picks the active spawn phase based on current run time
     private void GetSpawnPhase(out int currentMaxEnemies, out float currentSpawnInterval)
     {
-        SpawnPhase currentPhase = spawnPhases[0];
-        float runTimeSeconds = GameManager.CurrentRunTimeSeconds;
-        
-        for (int i = 1; i < spawnPhases.Length; i++)
+        // Defaults to 0 if no phases are added
+        if (spawnPhases == null || spawnPhases.Length == 0)
         {
-            if (runTimeSeconds < spawnPhases[i].startTimeSeconds)
-            {
-                break;
-            }
-            
-            currentPhase = spawnPhases[i];
+            currentMaxEnemies = 0;
+            currentSpawnInterval = 0f;
+            return;
         }
         
-        currentMaxEnemies = currentPhase.maxEnemies;
-        currentSpawnInterval = currentPhase.spawnInterval;
+        float runTimeSeconds = GameManager.CurrentRunTimeSeconds;
+        
+        for (int i = 0; i < spawnPhases.Length - 1; i++)
+        {
+            SpawnPhase currentPhase = spawnPhases[i];
+            SpawnPhase nextPhase = spawnPhases[i + 1];
+            
+            if (runTimeSeconds < nextPhase.startTimeSeconds)
+            {
+                float percentToNextPhase = Mathf.InverseLerp(
+                    currentPhase.startTimeSeconds,
+                    nextPhase.startTimeSeconds,
+                    runTimeSeconds
+                );
+                
+                // Gradually increases from current phase values to next phase values
+                currentMaxEnemies = Mathf.RoundToInt(Mathf.Lerp(currentPhase.maxEnemies, nextPhase.maxEnemies, percentToNextPhase));
+                currentSpawnInterval = Mathf.Lerp(currentPhase.spawnInterval, nextPhase.spawnInterval, percentToNextPhase);
+                return;
+            }
+        }
+        
+        SpawnPhase lastPhase = spawnPhases[spawnPhases.Length - 1];
+        currentMaxEnemies = lastPhase.maxEnemies;
+        currentSpawnInterval = lastPhase.spawnInterval;
     }
 }
