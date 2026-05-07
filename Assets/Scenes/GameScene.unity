@@ -640,63 +640,63 @@ MonoBehaviour:
   respawnDistance: 40
   spawnPhases:
   - startTimeSeconds: 0
-    maxEnemies: 20
-    spawnInterval: 1
-  - startTimeSeconds: 15
-    maxEnemies: 28
-    spawnInterval: 0.8
+    maxEnemies: 10
+    spawnInterval: 1.4
   - startTimeSeconds: 30
-    maxEnemies: 35
-    spawnInterval: 0.6
-  - startTimeSeconds: 45
-    maxEnemies: 41
-    spawnInterval: 0.5
+    maxEnemies: 20
+    spawnInterval: 1.2
   - startTimeSeconds: 60
-    maxEnemies: 46
-    spawnInterval: 0.4
-  - startTimeSeconds: 75
-    maxEnemies: 50
-    spawnInterval: 0.35
+    maxEnemies: 30
+    spawnInterval: 1.05
   - startTimeSeconds: 90
-    maxEnemies: 55
-    spawnInterval: 0.3
-  - startTimeSeconds: 105
-    maxEnemies: 60
-    spawnInterval: 0.3
+    maxEnemies: 40
+    spawnInterval: 0.9
   - startTimeSeconds: 120
-    maxEnemies: 75
-    spawnInterval: 0.25
+    maxEnemies: 60
+    spawnInterval: 0.75
   - startTimeSeconds: 150
-    maxEnemies: 85
-    spawnInterval: 0.225
+    maxEnemies: 80
+    spawnInterval: 0.6
   - startTimeSeconds: 180
     maxEnemies: 100
-    spawnInterval: 0.2
-  - startTimeSeconds: 210
-    maxEnemies: 115
-    spawnInterval: 0.2
+    spawnInterval: 0.45
   - startTimeSeconds: 240
-    maxEnemies: 145
-    spawnInterval: 0.175
-  - startTimeSeconds: 270
-    maxEnemies: 155
-    spawnInterval: 0.17
+    maxEnemies: 125
+    spawnInterval: 0.4
   - startTimeSeconds: 300
-    maxEnemies: 200
-    spawnInterval: 0.16
-  - startTimeSeconds: 330
     maxEnemies: 150
-    spawnInterval: 0.2
-  - startTimeSeconds: 345
-    maxEnemies: 50
-    spawnInterval: 0.2
+    spawnInterval: 0.3
   - startTimeSeconds: 360
-    maxEnemies: 25
+    maxEnemies: 155
     spawnInterval: 0.2
-  - startTimeSeconds: 375
+  - startTimeSeconds: 420
+    maxEnemies: 160
+    spawnInterval: 0.15
+  - startTimeSeconds: 480
+    maxEnemies: 165
+    spawnInterval: 0.1
+  - startTimeSeconds: 540
+    maxEnemies: 175
+    spawnInterval: 0.09
+  - startTimeSeconds: 600
+    maxEnemies: 180
+    spawnInterval: 0.08
+  - startTimeSeconds: 720
+    maxEnemies: 185
+    spawnInterval: 0.07
+  - startTimeSeconds: 840
+    maxEnemies: 190
+    spawnInterval: 0.06
+  - startTimeSeconds: 900
+    maxEnemies: 200
+    spawnInterval: 0.05
+  - startTimeSeconds: 920
+    maxEnemies: 50
+    spawnInterval: 1
+  - startTimeSeconds: 940
     maxEnemies: 0
-    spawnInterval: 0.2
-  boss1Prefab: {fileID: 1874990315484048395, guid: e1999b6e19d52fa4fb0d1215cecdecde, type: 3}
+    spawnInterval: 1
+  boss1Prefab: {fileID: 1874990315484048395, guid: 3cae73fc11ab4794f9bfd6103a24379d, type: 3}
   boss2Prefab: {fileID: 1874990315484048395, guid: 3cae73fc11ab4794f9bfd6103a24379d, type: 3}
   boss3Prefab: {fileID: 1874990315484048395, guid: 058344c965d47b24ca174b860d2c36d0, type: 3}
   virtualCamera: {fileID: 1269148360}
@@ -758,6 +758,18 @@ MonoBehaviour:
     spawnOnTech: 1
     spawnOnHazard: 0
     spawnOnDeath: 0
+  - prefabs:
+    - {fileID: 1961546337541591266, guid: b2b6b5a49c4aec04c9c2e17be85dfdf5, type: 3}
+    objectCount: 1
+    spawnChance: 1
+    playerSpawnPoint: {x: 0, y: 0}
+    objectSpacing: 4
+    playerSpacing: 5
+    maxPlacementAttempts: 10
+    spawnOnEarth: 0
+    spawnOnTech: 0
+    spawnOnHazard: 0
+    spawnOnDeath: 1
 --- !u!95 &786510493 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 7021372815280161902, guid: 1c5a93d80cf55b44696cd2fb0b7d4049, type: 3}
@@ -1313,6 +1325,10 @@ PrefabInstance:
       propertyPath: chunkManager
       value: 
       objectReference: {fileID: 636936949}
+    - target: {fileID: 314159265358979323, guid: 1c5a93d80cf55b44696cd2fb0b7d4049, type: 3}
+      propertyPath: damageInterval
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 942206545015901672, guid: 1c5a93d80cf55b44696cd2fb0b7d4049, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -1448,10 +1464,6 @@ PrefabInstance:
     - target: {fileID: 7021372815280161902, guid: 1c5a93d80cf55b44696cd2fb0b7d4049, type: 3}
       propertyPath: m_Enabled
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7307718978563041254, guid: 1c5a93d80cf55b44696cd2fb0b7d4049, type: 3}
-      propertyPath: m_Radius
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9007521428449226668, guid: 1c5a93d80cf55b44696cd2fb0b7d4049, type: 3}
       propertyPath: m_Constraints
